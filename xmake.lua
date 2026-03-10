@@ -5,7 +5,7 @@ add_rules("plugin.compile_commands.autoupdate", {outputdir = "build"})
 add_rules("mode.releasedbg")
 
 -- C++17 required
-set_languages("cxx17")
+set_languages("cxx23")
 set_encodings("utf-8")
 
 -- Options
@@ -495,10 +495,7 @@ if has_config("tests") then
         add_includedirs("Tests/Dependencies/doctest", {public = true})
         add_includedirs("Tests/Dependencies/trompeloeil", {public = true})
 
-        add_files(
-            "Tests/Source/Common/TestsInterface.cpp",
-            "Tests/Source/Common/TestsShell.cpp"
-        )
+        add_files("Tests/Source/Common/*.cpp")
 
         if is_toolchain("msvc") then
             add_defines("DOCTEST_CONFIG_USE_STD_HEADERS")
@@ -518,19 +515,7 @@ if has_config("tests") then
         add_includedirs("Tests/Dependencies/doctest")
         add_includedirs("Tests/Dependencies/nanobench")
 
-        add_files(
-            "Tests/Source/Benchmarks/DataExpression.cpp",
-            "Tests/Source/Benchmarks/Element.cpp",
-            "Tests/Source/Benchmarks/BackgroundBorder.cpp",
-            "Tests/Source/Benchmarks/ElementDocument.cpp",
-            "Tests/Source/Benchmarks/Table.cpp",
-            "Tests/Source/Benchmarks/Selectors.cpp",
-            "Tests/Source/Benchmarks/main.cpp",
-            "Tests/Source/Benchmarks/DataBinding.cpp",
-            "Tests/Source/Benchmarks/Flexbox.cpp",
-            "Tests/Source/Benchmarks/FontEffect.cpp",
-            "Tests/Source/Benchmarks/WidgetTextInput.cpp"
-        )
+        add_files("Tests/Source/Benchmarks/*.cpp")
 
         if is_toolchain("msvc") then
             add_cxxflags("/utf-8")
@@ -565,14 +550,7 @@ if has_config("tests") then
         add_includedirs("Tests/Dependencies/doctest")
         add_includedirs("Tests/Dependencies/lodepng")
 
-        add_files(
-            "Tests/Source/VisualTests/XmlNodeHandlers.cpp",
-            "Tests/Source/VisualTests/TestViewer.cpp",
-            "Tests/Source/VisualTests/TestConfig.cpp",
-            "Tests/Source/VisualTests/TestNavigator.cpp",
-            "Tests/Source/VisualTests/main.cpp",
-            "Tests/Source/VisualTests/CaptureScreen.cpp"
-        )
+        add_files("Tests/Source/VisualTests/*.cpp")
 
         if is_plat("windows") then
             add_ldflags("/SUBSYSTEM:WINDOWS", {force = true})
