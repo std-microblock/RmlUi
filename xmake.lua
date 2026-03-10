@@ -1,6 +1,3 @@
--- RmlUi xmake build script
--- Replaces the CMake build system
-
 set_project("RmlUi")
 set_version("6.3", {build = "$(buildversion)"})
 
@@ -551,40 +548,7 @@ if has_config("tests") then
         add_includedirs("Tests/Dependencies/trompeloeil")
 
         add_files(
-            "Tests/Source/UnitTests/Animation.cpp",
-            "Tests/Source/UnitTests/Core.cpp",
-            "Tests/Source/UnitTests/DataBinding.cpp",
-            "Tests/Source/UnitTests/DataExpression.cpp",
-            "Tests/Source/UnitTests/DataModel.cpp",
-            "Tests/Source/UnitTests/Debugger.cpp",
-            "Tests/Source/UnitTests/Decorator.cpp",
-            "Tests/Source/UnitTests/Element.cpp",
-            "Tests/Source/UnitTests/ElementBackgroundBorder.cpp",
-            "Tests/Source/UnitTests/ElementDocument.cpp",
-            "Tests/Source/UnitTests/ElementHandle.cpp",
-            "Tests/Source/UnitTests/ElementFormControlSelect.cpp",
-            "Tests/Source/UnitTests/ElementImage.cpp",
-            "Tests/Source/UnitTests/ElementStyle.cpp",
-            "Tests/Source/UnitTests/EventListener.cpp",
-            "Tests/Source/UnitTests/Filter.cpp",
-            "Tests/Source/UnitTests/FlexFormatting.cpp",
-            "Tests/Source/UnitTests/Layout.cpp",
-            "Tests/Source/UnitTests/Localization.cpp",
-            "Tests/Source/UnitTests/main.cpp",
-            "Tests/Source/UnitTests/Math.cpp",
-            "Tests/Source/UnitTests/MediaQuery.cpp",
-            "Tests/Source/UnitTests/Properties.cpp",
-            "Tests/Source/UnitTests/PropertySpecification.cpp",
-            "Tests/Source/UnitTests/Selectors.cpp",
-            "Tests/Source/UnitTests/Specificity_Basic.cpp",
-            "Tests/Source/UnitTests/Specificity_MediaQuery.cpp",
-            "Tests/Source/UnitTests/StableVector.cpp",
-            "Tests/Source/UnitTests/StringUtilities.cpp",
-            "Tests/Source/UnitTests/StyleSheetParser.cpp",
-            "Tests/Source/UnitTests/Template.cpp",
-            "Tests/Source/UnitTests/URL.cpp",
-            "Tests/Source/UnitTests/Variant.cpp",
-            "Tests/Source/UnitTests/XMLParser.cpp"
+            "Tests/Source/UnitTests/*.cpp"
         )
 
         if is_toolchain("clang", "gcc") then
