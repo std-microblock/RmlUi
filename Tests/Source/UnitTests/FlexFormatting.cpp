@@ -8,9 +8,9 @@
 using namespace Rml;
 
 static const String document_flex_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			width: 500px;
@@ -35,7 +35,7 @@ static const String document_flex_rml = R"(
 		<input type="checkbox" id="checkbox"/>
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("FlexFormatting")
@@ -81,9 +81,9 @@ TEST_CASE("FlexFormatting")
 }
 
 static const String document_flex_dp_ratio_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			width: 100%;
@@ -124,7 +124,7 @@ static const String document_flex_dp_ratio_rml = R"(
 		</div>
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("FlexFormatting.dp_ratio")

@@ -72,10 +72,10 @@ static bool DictionaryApproximateMatch(const Rml::Dictionary& dict, const Rml::D
 }
 
 static const String document_decorator_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -130,7 +130,7 @@ static const String document_decorator_rml = R"(
 	<div id="auto_box"/>
 	<div id="border_box"/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("decorator.paint-area")
@@ -208,10 +208,10 @@ TEST_CASE("decorator.gradients_and_shader")
 	REQUIRE(context);
 
 	static const String document_gradients_rml = R"(
-		<rml>
+		<html>
 		<head>
 			<title>Test</title>
-			<link type="text/rcss" href="/assets/rml.rcss"/>
+			<link type="text/css" href="/assets/html.css"/>
 			<style>
 				body {
 					left: 0;
@@ -233,7 +233,7 @@ TEST_CASE("decorator.gradients_and_shader")
 		<body>
 			<div/>
 		</body>
-		</rml>
+		</html>
 	)";
 
 	struct TestCase {

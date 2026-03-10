@@ -12,10 +12,10 @@ using namespace Rml;
  */
 
 static const String simple_doc1_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.b {
 			width: 50px;
@@ -23,10 +23,10 @@ static const String simple_doc1_rml = R"(
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc2_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -34,13 +34,13 @@ static const String simple_doc2_rml = R"(
 			width: 50px;
 		}
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc3_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -48,81 +48,81 @@ static const String simple_doc3_rml = R"(
 			width: 50px;
 		}
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc4_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.b { width: 200px; }
 		.a { width: 50px; }
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc5_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc6_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
 		.b { width: 200px; }
 		.a { width: 50px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc7_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc8_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc9_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
@@ -133,13 +133,13 @@ static const String simple_doc9_rml = R"(
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc10_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
@@ -150,13 +150,13 @@ static const String simple_doc10_rml = R"(
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc11_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
@@ -167,13 +167,13 @@ static const String simple_doc11_rml = R"(
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc12_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
@@ -184,27 +184,27 @@ static const String simple_doc12_rml = R"(
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc13_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
 		.a { width: 50px; }
 		.b { width: 200px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 	<style>
 		.a { width: 400px; }
 		.b { width: 300px; }
 	</style>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 static const String simple_doc14_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -215,10 +215,10 @@ static const String simple_doc14_rml = R"(
 		.a { width: 400px; }
 		.b { width: 300px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_Basic.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_Basic.css"/>
 </head>
 <body class="a b c"/>
-</rml>
+</html>
 )";
 
 TEST_CASE("specificity.basic")

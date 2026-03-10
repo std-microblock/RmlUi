@@ -12,9 +12,9 @@ using namespace ankerl;
 using namespace Rml;
 
 static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<title>Benchmark Sample</title>
 	<style>
 		body.window
@@ -50,7 +50,7 @@ static const String document_rml = R"(
 	</div>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("elementdocument")

@@ -11,10 +11,10 @@ using namespace ankerl;
 using namespace Rml;
 
 static const String rml_flexbox_basic_document = R"(
-<rml>
+<html>
 <head>
     <title>Flex 01 - Basic flexbox (slow, content-based sizing)</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		header, article { display: block; }
 		h1 { font-size: 1.5em; }
@@ -49,14 +49,14 @@ static const String rml_flexbox_basic_document = R"(
 </head>
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_flexbox_basic_document_fast = R"(
-<rml>
+<html>
 <head>
     <title>Flex 01 - Basic flexbox (fast, not content based)</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		header, article { display: block; }
 		h1 { font-size: 1.5em; }
@@ -95,14 +95,14 @@ static const String rml_flexbox_basic_document_fast = R"(
 </head>
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_flexbox_basic_document_float_reference = R"(
-<rml>
+<html>
 <head>
     <title>Flex 01 - Basic flexbox (float comparison)</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		header, article { display: block; }
 		h1 { font-size: 1.5em; }
@@ -140,7 +140,7 @@ static const String rml_flexbox_basic_document_float_reference = R"(
 </head>
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_flexbox_basic_body = R"(
@@ -165,10 +165,10 @@ static const String rml_flexbox_basic_body = R"(
 )";
 
 static const String rml_flexbox_mixed_document = R"(
-<rml>
+<html>
 <head>
     <title>Flex 02 - Various features</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
         .flex-container {
             display: flex;
@@ -209,7 +209,7 @@ static const String rml_flexbox_mixed_document = R"(
 
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_flexbox_mixed_body = R"(
@@ -237,10 +237,10 @@ static const String rml_flexbox_mixed_body = R"(
 )";
 
 static const String rml_flexbox_scroll_document = R"(
-<rml>
+<html>
 <head>
     <title>Flex 03 - Scrolling container</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		.flex {
 			display: flex;
@@ -275,7 +275,7 @@ static const String rml_flexbox_scroll_document = R"(
 </head>
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_flexbox_scroll_body = R"(
@@ -332,7 +332,7 @@ TEST_CASE("flexbox")
 
 		TestsShell::RenderLoop();
 
-		// Compare to an almost equivalent fast flexbox layout where we try to eliminate any content-based sizing. Uses the same body rml.
+		// Compare to an almost equivalent fast flexbox layout where we try to eliminate any content-based sizing. Uses the same body html.
 		ElementDocument* document_fast = context->LoadDocumentFromMemory(rml_flexbox_basic_document_fast);
 		REQUIRE(document_fast);
 		document_fast->Show();
@@ -343,7 +343,7 @@ TEST_CASE("flexbox")
 
 		TestsShell::RenderLoop();
 
-		// Finally, add a reference document based on layout with float boxes instead of flexbox. Uses the same body rml.
+		// Finally, add a reference document based on layout with float boxes instead of flexbox. Uses the same body html.
 		ElementDocument* document_float_reference = context->LoadDocumentFromMemory(rml_flexbox_basic_document_float_reference);
 		REQUIRE(document_float_reference);
 		document_float_reference->Show();
@@ -466,10 +466,10 @@ TEST_CASE("flexbox")
 }
 
 static const String rml_flexbox_chatbox = R"(
-<rml>
+<html>
 <head>
 	<title>Chat</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		body {
 			font-size: 16px;
@@ -492,7 +492,7 @@ static const String rml_flexbox_chatbox = R"(
 <body>
 	<div id="chat"/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("flexbox.chat")
@@ -506,10 +506,10 @@ TEST_CASE("flexbox.chat")
 	// bench.epochs(100);
 
 	auto MakeFlexItemsRml = [](int number_items, const String& item_text) {
-		String rml;
+		String html;
 		for (int i = 0; i < number_items; i++)
-			rml += "<div>" + item_text + "</div>";
-		return rml;
+			html += "<div>" + item_text + "</div>";
+		return html;
 	};
 
 	const String short_words =
@@ -545,10 +545,10 @@ TEST_CASE("flexbox.chat")
 }
 
 static const String rml_flexbox_shrink_to_fit = R"(
-<rml>
+<html>
 <head>
     <title>Flex - Shrink-to-fit 01</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		body { width: 1000px; }
 		.shrink-to-fit {
@@ -597,7 +597,7 @@ static const String rml_flexbox_shrink_to_fit = R"(
 	After
 </div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("flexbox.shrink-to-fit")

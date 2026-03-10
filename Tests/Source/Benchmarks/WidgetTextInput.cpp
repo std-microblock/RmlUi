@@ -12,9 +12,9 @@ using namespace ankerl;
 using namespace Rml;
 
 static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+	<link type="text/css" href="/../Tests/Data/style.css"/>
 	<title>Benchmark Sample</title>
 	<style>
 		body {
@@ -33,7 +33,7 @@ static const String document_rml = R"(
 <body>
 <textarea id="textarea">Hello, World!</textarea>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("WidgetTextInput")

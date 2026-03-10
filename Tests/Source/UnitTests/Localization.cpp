@@ -11,7 +11,7 @@
 using namespace Rml;
 
 static const String document_localization_rml = R"(
-<rml>
+<html>
 <head>
 </head>
 
@@ -23,7 +23,7 @@ static const String document_localization_rml = R"(
 		<span id="cell3" lang="ar" dir="rtl"/>
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("Localization")

@@ -106,7 +106,7 @@ int main(int /*argc*/, char** /*argv*/)
 		});
 	}
 
-	if (Rml::ElementDocument* document = context->LoadDocument("basic/effects/data/effects.rml"))
+	if (Rml::ElementDocument* document = context->LoadDocument("basic/effects/data/effects.html"))
 		document->Show();
 
 	bool running = true;

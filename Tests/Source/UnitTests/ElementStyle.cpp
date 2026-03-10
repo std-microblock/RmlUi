@@ -7,10 +7,10 @@
 using namespace Rml;
 
 static const String document_decorator_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -34,7 +34,7 @@ static const String document_decorator_rml = R"(
 <div style="decorator: image(high_scores_alien_1.tga);"/>
 <img src="high_scores_alien_1.tga"/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("elementstyle.inline_decorator_images")

@@ -11,7 +11,7 @@ class DemoWindow : public Rml::EventListener {
 public:
 	DemoWindow(const Rml::String& title, const Rml::Vector2f& position, Rml::Context* context)
 	{
-		document = context->LoadDocument("basic/transform/data/transform.rml");
+		document = context->LoadDocument("basic/transform/data/transform.html");
 		if (document)
 		{
 			document->GetElementById("title")->SetInnerRML(title);

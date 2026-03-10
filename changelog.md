@@ -38,13 +38,13 @@ Introducing native touch input processing and inertial (momentum) scrolling. Thi
 
 ### RCSS
 
-- Add [`font-kerning`](https://mikke89.github.io/RmlUiDoc/pages/rcss/fonts.html#font-kerning) property. #843 (thanks @TriangulumDesire)
-- Add [`inset`](https://mikke89.github.io/RmlUiDoc/pages/rcss/visual_formatting_model.html#top_right_bottom_left) property. A shorthand for specifying the `top`, `right`, `bottom`, and `left` properties.
-- Add [`text-overflow`](https://mikke89.github.io/RmlUiDoc/pages/rcss/text.html#text-overflow) property. Includes support for ellipsis as well as custom strings. #849
-- Implement CIELAB and Oklab [color space functions](https://mikke89.github.io/RmlUiDoc/pages/rcss/syntax.html#colours), e.g. `color: oklch(63% 0.25 30 / 0.8)`. #847 (thanks @TriangulumDesire)
+- Add [`font-kerning`](https://mikke89.github.io/RmlUiDoc/pages/css/fonts.html#font-kerning) property. #843 (thanks @TriangulumDesire)
+- Add [`inset`](https://mikke89.github.io/RmlUiDoc/pages/css/visual_formatting_model.html#top_right_bottom_left) property. A shorthand for specifying the `top`, `right`, `bottom`, and `left` properties.
+- Add [`text-overflow`](https://mikke89.github.io/RmlUiDoc/pages/css/text.html#text-overflow) property. Includes support for ellipsis as well as custom strings. #849
+- Implement CIELAB and Oklab [color space functions](https://mikke89.github.io/RmlUiDoc/pages/css/syntax.html#colours), e.g. `color: oklch(63% 0.25 30 / 0.8)`. #847 (thanks @TriangulumDesire)
 - Allow specifying RCSS strings using 'single quotation marks'.
 - Whitespace is now preserved within quotes, an empty string is now possible using quotes.
-- Make animations with the `display` property always visible during interpolation, see the [display animation behavior](https://mikke89.github.io/RmlUiDoc/pages/rcss/visual_formatting_model.html#display) documentation. Helpful in animations and transition where one wants to apply fade-in or fade-out effects when showing or hiding an element. Matches the existing behavior of the `visibility` property and is consistent with recent CSS specifications.
+- Make animations with the `display` property always visible during interpolation, see the [display animation behavior](https://mikke89.github.io/RmlUiDoc/pages/css/visual_formatting_model.html#display) documentation. Helpful in animations and transition where one wants to apply fade-in or fade-out effects when showing or hiding an element. Matches the existing behavior of the `visibility` property and is consistent with recent CSS specifications.
 - Fix animation keyframes with uppercase characters. Names of keyframes are now case-sensitive, like in CSS. #852
 
 ### Data bindings
@@ -172,7 +172,7 @@ The `<handle>` element has received several major improvements.
   - Thus, when first sizing and moving the target and then resizing its container, the element can now still resize itself to match the new dimensions.
 - The `edge_margin` attribute is introduced to constrain the target placement to the edges of its containing block. #631 
   - Applies to both position and size targets.
-  - This attribute can take any length or percentage, which specifies the minimum distance between the target and the edges of its containing block. Each side can be specified individually, and negative values are allowed. See the [documentation](https://mikke89.github.io/RmlUiDoc/pages/rml/controls.html#handle) for details.
+  - This attribute can take any length or percentage, which specifies the minimum distance between the target and the edges of its containing block. Each side can be specified individually, and negative values are allowed. See the [documentation](https://mikke89.github.io/RmlUiDoc/pages/html/controls.html#handle) for details.
   - Defaults to `0px`, which means that handle targets will now be constrained exactly to the edges of their containing block.
 - Fix several issues where the element jolts some distance at drag start:
   - When the target's containing block has a border.
@@ -230,7 +230,7 @@ The font face will be inherited from the element it is being applied to. However
 
 ### Elements
 
-- Add support for the [`:scope` pseudo selector](https://mikke89.github.io/RmlUiDoc/pages/rcss/selectors.html#pseudo-selectors) when calling into the `Element` DOM query methods, i.e. `Element::QuerySelector[All]`, `Element::Matches`, and `Element::Closest`. #578 (thanks @Paril)
+- Add support for the [`:scope` pseudo selector](https://mikke89.github.io/RmlUiDoc/pages/css/selectors.html#pseudo-selectors) when calling into the `Element` DOM query methods, i.e. `Element::QuerySelector[All]`, `Element::Matches`, and `Element::Closest`. #578 (thanks @Paril)
 - Add [`Element::Contains` DOM method](https://mikke89.github.io/RmlUiDoc/pages/cpp_manual/elements.html#dom-interface).
 - Allow `Element::ScrollIntoView` to only scroll in the nearest scroll container, instead of all ancestor scroll containers, by using the new `ScrollParentage::Closest` scroll option.
 - Fix an issue where scrollbars could appear or disappear one frame after they should have changed visibility.
@@ -377,7 +377,7 @@ New decorators:
 - `radial-gradient`, `repeating-radial-gradient`
 - `conic-gradient`, `repeating-conic-gradient`
 
-The gradients support most of the CSS features and syntax, including angle and `to <direction>` syntax for direction, multiple color stops, locations in length or percentage units, and up to two locations per color. Please see the [decorators documentation](https://mikke89.github.io/RmlUiDoc/pages/rcss/decorators.html#rmlui-decorators) for details.
+The gradients support most of the CSS features and syntax, including angle and `to <direction>` syntax for direction, multiple color stops, locations in length or percentage units, and up to two locations per color. Please see the [decorators documentation](https://mikke89.github.io/RmlUiDoc/pages/css/decorators.html#rmlui-decorators) for details.
 
 - The new rendering interface includes support for shaders, which enable the above decorators. Parsing is done in the library, but the backend renderer is the one implementing the actual shader code.
 
@@ -523,7 +523,7 @@ Here is a more detailed change list resulting from the rewritten inline formatti
 - Fix some replaced elements (e.g. textarea) not rendering correctly in several situations, such as when set to block display, floated, or absolutely positioned.
 - Improve shrink-to-fit width, now includes floating children when determining width.
 - Margins of absolutely positioned elements now better account for inset (top/right/bottom/left) properties.
-- Support for new [`display`](https://mikke89.github.io/RmlUiDoc/pages/rcss/visual_formatting_model.html#display) values: `flow-root`, `inline-flex`, `inline-table`.
+- Support for new [`display`](https://mikke89.github.io/RmlUiDoc/pages/css/visual_formatting_model.html#display) values: `flow-root`, `inline-flex`, `inline-table`.
 - Support for the value [`vertical-align: center`](https://www.w3.org/TR/css-inline-3/#valdef-baseline-shift-center).
 - Stacking contexts are now established in a way that more closely aligns with CSS.
 - Improve the paint order of elements.
@@ -553,7 +553,7 @@ Finally, this example tests vertical alignment of inline boxes, and particularly
 - Make flex containers and tables with fixed width work in shrink-to-fit contexts. #520
 - Compute shrink-to-fit width for flex boxes. #559 #577 (thanks @alml)
 - Add the `space-evenly` value to flex box properties `justify-content` and `align-content`. #585 (thanks @LucidSigma)
-- Implement the [`gap` property](https://mikke89.github.io/RmlUiDoc/pages/rcss/flexboxes.html#gap) for flexboxes. #621 (thanks @ChrisFloofyKitsune)
+- Implement the [`gap` property](https://mikke89.github.io/RmlUiDoc/pages/css/flexboxes.html#gap) for flexboxes. #621 (thanks @ChrisFloofyKitsune)
 - Flexbox: Consider intrinsic sizes when determining flex base size, fixes an assertion error. #640
 
 ### CMake modernization
@@ -681,10 +681,10 @@ The presets can be combined with other options, like `CMAKE_BUILD_TYPE` to selec
 
 ### Spatial navigation
 
-Introduce [spatial navigation](https://mikke89.github.io/RmlUiDoc/pages/rcss/user_interface.html#nav) for keyboards and other input devices. This determines how the focus is moved when pressing one of the navigation direction buttons. #142 #519 #524 (thanks @gleblebedev)
+Introduce [spatial navigation](https://mikke89.github.io/RmlUiDoc/pages/css/user_interface.html#nav) for keyboards and other input devices. This determines how the focus is moved when pressing one of the navigation direction buttons. #142 #519 #524 (thanks @gleblebedev)
 
 - Add the new properties `nav-up`, `nav-right`, `nav-down`, `nav-left`, and shorthand `nav`.
-- Add [`:focus-visible` pseudo class](https://mikke89.github.io/RmlUiDoc/pages/rcss/selectors.html#pseudo-selectors) as a way to style elements that should be highlighted during navigation, like its equivalent CSS selector.
+- Add [`:focus-visible` pseudo class](https://mikke89.github.io/RmlUiDoc/pages/css/selectors.html#pseudo-selectors) as a way to style elements that should be highlighted during navigation, like its equivalent CSS selector.
 - The `invaders` sample implements this feature for full keyboard navigation, and uses `:focus-visible` to highlight the focus.
 - Elements in focus are now clicked when pressing space bar.
 
@@ -701,7 +701,7 @@ input { nav: auto; nav-right: #ok_button; }
 - Add `lang` and `dir` RML attributes, along with text shaping support in the font engine interface. #563 (thanks @LucidSigma)
 - Create a sample for text shaping with Harfbuzz, including right-to-left text formatting. #568 #211 #588 (thanks @LucidSigma)
   - Implement fallback font support for the Harfbuzz sample. #635 (thanks @LucidSigma)
-- Add support for the [`letter-spacing` property](https://mikke89.github.io/RmlUiDoc/pages/rcss/text.html#letter-spacing). #429 (thanks @igorsegallafa)
+- Add support for the [`letter-spacing` property](https://mikke89.github.io/RmlUiDoc/pages/css/text.html#letter-spacing). #429 (thanks @igorsegallafa)
 - Add initialize and shutdown procedures to font engine interface for improved lifetime management. #583
 
 Screenshots of the HarfBuzz sample showing Arabic text properly rendered with the HarfBuzz font engine, and compared to the default font engine:
@@ -779,7 +779,7 @@ IME sample screenshot:
 
 ### General improvements
 
-- Add repeat fit modes to the [image decorator](https://mikke89.github.io/RmlUiDoc/pages/rcss/decorators/image.html), e.g. `decorator: image(alien.png repeat)`. #259 #493 (thanks @viseztrance)
+- Add repeat fit modes to the [image decorator](https://mikke89.github.io/RmlUiDoc/pages/css/decorators/image.html), e.g. `decorator: image(alien.png repeat)`. #259 #493 (thanks @viseztrance)
 - Implement the ability to release specific textures from memory using `Rml::ReleaseTexture`. #543 (thanks @viseztrance)
 - Add support for the `not` prefix in media queries. #564 (thanks @Paril)
 - Use string parser to allow "quotes" in sprite sheet `src` property. #571 #574 (thanks @andreasschultes)
@@ -921,7 +921,7 @@ The font engine interface has been reworked to encompass new features, to simpli
 
 #### Removed deprecated functionality
 
-- Removed the `<datagrid>` and `<dataselect>` elements, related utilities, and associated tutorials. Users are encouraged to replace this functionality by [tables](https://mikke89.github.io/RmlUiDoc/pages/rcss/tables.html), [select boxes](https://mikke89.github.io/RmlUiDoc/pages/rml/forms.html#select), and [data bindings](https://mikke89.github.io/RmlUiDoc/pages/data_bindings.html).
+- Removed the `<datagrid>` and `<dataselect>` elements, related utilities, and associated tutorials. Users are encouraged to replace this functionality by [tables](https://mikke89.github.io/RmlUiDoc/pages/css/tables.html), [select boxes](https://mikke89.github.io/RmlUiDoc/pages/html/forms.html#select), and [data bindings](https://mikke89.github.io/RmlUiDoc/pages/data_bindings.html).
 
 
 ## RmlUi 5.1
@@ -971,7 +971,7 @@ The `mousescroll` event no longer performs scrolling on an element, and no longe
 
 ### New RCSS features
 
-- New [`overscroll-behavior` property](https://mikke89.github.io/RmlUiDoc/pages/rcss/user_interface.html#overscroll-behavior). An element's closest scrollable ancestor is decided by scroll chaining, which can be controlled using this property. The `contain` value can be used to ensure that mouse wheel scrolling is not propagated outside a given element, regardless of whether its scrollbars are visible.
+- New [`overscroll-behavior` property](https://mikke89.github.io/RmlUiDoc/pages/css/user_interface.html#overscroll-behavior). An element's closest scrollable ancestor is decided by scroll chaining, which can be controlled using this property. The `contain` value can be used to ensure that mouse wheel scrolling is not propagated outside a given element, regardless of whether its scrollbars are visible.
 - Added animation support for decorators. #421 (thanks @0suddenly0)
 - Sibling selectors will now also match hidden elements.
 
@@ -1074,7 +1074,7 @@ See the [Backends section in the readme](readme.md#rmlui-backends) for all the c
 
 ### RCSS selectors
 
-- Implemented the next-sibling `+` and subsequent-sibling `~` [combinators](https://mikke89.github.io/RmlUiDoc/pages/rcss/selectors.html).
+- Implemented the next-sibling `+` and subsequent-sibling `~` [combinators](https://mikke89.github.io/RmlUiDoc/pages/css/selectors.html).
 - Implemented attribute selectors `[foo]`, `[foo=bar]`, `[foo~=bar]`, `[foo|=bar]`, `[foo^=bar]`, `[foo$=bar]`, `[foo*=bar]`. #240 (thanks @aquawicket)
 - Implemented the negation pseudo class `:not()`, including support for selector lists `E:not(s1, s2, ...)`.
 - Refactored structural pseudo classes for improved performance.
@@ -1229,7 +1229,7 @@ Support for flexible box layout. [#182](https://github.com/mikke89/RmlUi/issues/
 display: flex;
 ```
 
-See usage examples, differences from CSS, performance tips, and all the details [in the flexbox documentation](https://mikke89.github.io/RmlUiDoc/pages/rcss/flexboxes.html).
+See usage examples, differences from CSS, performance tips, and all the details [in the flexbox documentation](https://mikke89.github.io/RmlUiDoc/pages/css/flexboxes.html).
 
 ### Elements
 
@@ -1241,7 +1241,7 @@ See usage examples, differences from CSS, performance tips, and all the details 
 
 ### RCSS
 
-- Add (non-standard) property value `clip: always` to force clipping to the element, [see `clip` documentation](https://mikke89.github.io/RmlUiDoc/pages/rcss/visual_effects.html#clip). [#235](https://github.com/mikke89/RmlUi/issues/235) [#251](https://github.com/mikke89/RmlUi/pull/251) (thanks @MatthiasJFM)
+- Add (non-standard) property value `clip: always` to force clipping to the element, [see `clip` documentation](https://mikke89.github.io/RmlUiDoc/pages/css/visual_effects.html#clip). [#235](https://github.com/mikke89/RmlUi/issues/235) [#251](https://github.com/mikke89/RmlUi/pull/251) (thanks @MatthiasJFM)
 - Escape character changed from forward slash to backslash `\` to align with CSS.
 
 ### Layout improvements
@@ -1378,7 +1378,7 @@ These changes may result in a differently rendered layout when upgrading to RmlU
 
 ### Table support
 
-RmlUi now supports tables like in CSS, with some differences and enhancements. RCSS supports flexible sizing of rows and columns (as if using the CSS `fr` unit in grid layout). See the [tables documentation](https://mikke89.github.io/RmlUiDoc/pages/rcss/tables.html) for details. 
+RmlUi now supports tables like in CSS, with some differences and enhancements. RCSS supports flexible sizing of rows and columns (as if using the CSS `fr` unit in grid layout). See the [tables documentation](https://mikke89.github.io/RmlUiDoc/pages/css/tables.html) for details. 
 
 ```html
 <table>
@@ -1410,7 +1410,7 @@ Use the RCSS `display` property to enable table formatting. See the style sheet 
 
 We now support `@media` rules for dynamically or programmatically changing active styles. [#169](https://github.com/mikke89/RmlUi/pull/169) (thanks @Dakror).
 
-See the [media queries documentation](https://mikke89.github.io/RmlUiDoc/pages/rcss/media_queries.html) for usage details and supported media features.
+See the [media queries documentation](https://mikke89.github.io/RmlUiDoc/pages/css/media_queries.html) for usage details and supported media features.
 
 ### Improved high DPI support
 
@@ -1529,7 +1529,7 @@ The Lua plugins have been changed to reflect the above changes.
 
 ### Deprecated functionality
 
-- The `datagrid` element and related functionality has been deprecated in favor of [data bindings](https://mikke89.github.io/RmlUiDoc/pages/data_bindings.html) and [RCSS tables](https://mikke89.github.io/RmlUiDoc/pages/rcss/tables.html).
+- The `datagrid` element and related functionality has been deprecated in favor of [data bindings](https://mikke89.github.io/RmlUiDoc/pages/data_bindings.html) and [RCSS tables](https://mikke89.github.io/RmlUiDoc/pages/css/tables.html).
 - The `<progressbar>` tag name has been deprecated in favor of `<progress>`. For now they work identically, but usage of `<progressbar>`  will raise a warning, expect future removal of this tag.
 
 ### Breaking changes
@@ -2302,7 +2302,7 @@ Internally, animations apply their properties on the local style of the element.
 
 Animations currently support full interpolation of transforms, largely following the CSS specifications. Additionally, interpolation is supported for colors, numbers, lengths, and percentages.
 
-Animations are very powerful coupled with transforms. See the animation sample project for more examples and details. There are also some [video demonstrations](https://mikke89.github.io/RmlUiDoc/pages/rcss/animations_transitions_transforms.html) of these features in the documentation.
+Animations are very powerful coupled with transforms. See the animation sample project for more examples and details. There are also some [video demonstrations](https://mikke89.github.io/RmlUiDoc/pages/css/animations_transitions_transforms.html) of these features in the documentation.
 
 
 ### Transitions

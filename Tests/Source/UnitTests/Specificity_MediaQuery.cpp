@@ -7,10 +7,10 @@
 using namespace Rml;
 
 static const String simple_doc1_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		body {
 			width: 50px;
@@ -18,10 +18,10 @@ static const String simple_doc1_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc2_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -29,13 +29,13 @@ static const String simple_doc2_rml = R"(
 			width: 50px;
 		}
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc3_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -43,16 +43,16 @@ static const String simple_doc3_rml = R"(
 			width: 50px;
 		}
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 </head>
 <body class="narrow"/>
-</rml>
+</html>
 )";
 static const String simple_doc4_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		body { width: 200px; }
 		@media (min-width: 100px) {
@@ -61,13 +61,13 @@ static const String simple_doc4_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc5_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 100px) {
 			body { width: 50px; }
@@ -76,10 +76,10 @@ static const String simple_doc5_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc6_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -88,13 +88,13 @@ static const String simple_doc6_rml = R"(
 			body { width: 50px; }
 		}
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc7_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -103,16 +103,16 @@ static const String simple_doc7_rml = R"(
 		}
 		body { width: 200px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc8_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 100px) {
 			body { width: 50px; }
@@ -121,13 +121,13 @@ static const String simple_doc8_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc9_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 100px) {
 			body { width: 50px; }
@@ -142,13 +142,13 @@ static const String simple_doc9_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc10_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 100px) {
 			body { width: 50px; }
@@ -163,13 +163,13 @@ static const String simple_doc10_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc11_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 100px) {
 			body { width: 50px; }
@@ -184,13 +184,13 @@ static const String simple_doc11_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc12_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 100px) {
 			body { width: 50px; }
@@ -205,10 +205,10 @@ static const String simple_doc12_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc13_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -217,7 +217,7 @@ static const String simple_doc13_rml = R"(
 		}
 		body { width: 200px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 	<style>
 		@media (min-width: 200px) {
 			body { width: 400px; }
@@ -226,10 +226,10 @@ static const String simple_doc13_rml = R"(
 	</style>
 </head>
 <body/>
-</rml>
+</html>
 )";
 static const String simple_doc14_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -244,10 +244,10 @@ static const String simple_doc14_rml = R"(
 		}
 		body { width: 300px; }
 	</style>
-	<link type="text/rcss" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.rcss"/>
+	<link type="text/css" href="/../Tests/Data/UnitTests/Specificity_MediaQuery.css"/>
 </head>
 <body/>
-</rml>
+</html>
 )";
 
 TEST_CASE("specificity.mediaquery")

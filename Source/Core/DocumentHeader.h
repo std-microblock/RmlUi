@@ -29,7 +29,7 @@ public:
 	using ResourceList = Vector<Resource>;
 
 	/// RCSS definitions
-	ResourceList rcss;
+	ResourceList css;
 
 	/// script source
 	ResourceList scripts;

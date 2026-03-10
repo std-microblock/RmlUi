@@ -28,7 +28,7 @@ TEST_CASE("debugger")
 	{
 		Rml::Debugger::Initialise(context);
 
-		ElementDocument* document = context->LoadDocument("assets/demo.rml");
+		ElementDocument* document = context->LoadDocument("assets/demo.html");
 		TestsShell::RenderLoop();
 
 		document->Close();
@@ -39,7 +39,7 @@ TEST_CASE("debugger")
 	{
 		Rml::Debugger::Initialise(context);
 
-		ElementDocument* document = context->LoadDocument("assets/demo.rml");
+		ElementDocument* document = context->LoadDocument("assets/demo.html");
 		TestsShell::RenderLoop();
 
 		document->Close();
@@ -51,7 +51,7 @@ TEST_CASE("debugger")
 
 	SUBCASE("shutdown_early")
 	{
-		ElementDocument* document = context->LoadDocument("assets/demo.rml");
+		ElementDocument* document = context->LoadDocument("assets/demo.html");
 		TestsShell::RenderLoop();
 
 		Rml::Debugger::Initialise(context);
@@ -72,7 +72,7 @@ TEST_CASE("debugger.unload_documents")
 	Context* context = TestsShell::GetContext(false);
 	Rml::Debugger::Initialise(context);
 
-	context->LoadDocument("assets/demo.rml");
+	context->LoadDocument("assets/demo.html");
 	TestsShell::RenderLoop();
 
 	// Closing documents from the debugger plugin is not allowed.
@@ -97,7 +97,7 @@ TEST_CASE("debugger.focus")
 	Context* context = TestsShell::GetContext(false);
 	Rml::Debugger::Initialise(context);
 
-	ElementDocument* document = context->LoadDocument("assets/demo.rml");
+	ElementDocument* document = context->LoadDocument("assets/demo.html");
 
 	SUBCASE("Normal")
 	{

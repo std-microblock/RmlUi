@@ -10,7 +10,7 @@ The following environment variables can be used to configure the directories use
 
 | Environment variable                   | Description                                                                                                                                                 |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `RMLUI_VISUAL_TESTS_RML_DIRECTORIES`   | Additional directories containing `*.rml` test documents. Separate multiple directories by comma. Change test suite directory using `Up`/`Down` arrow keys. |
+| `RMLUI_VISUAL_TESTS_RML_DIRECTORIES`   | Additional directories containing `*.html` test documents. Separate multiple directories by comma. Change test suite directory using `Up`/`Down` arrow keys. |
 | `RMLUI_VISUAL_TESTS_COMPARE_DIRECTORY` | Input directory for screenshot comparisons.                                                                                                                 |
 | `RMLUI_VISUAL_TESTS_CAPTURE_DIRECTORY` | Output directory for generated screenshots.                                                                                                                 |
 

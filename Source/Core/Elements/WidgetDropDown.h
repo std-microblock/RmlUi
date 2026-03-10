@@ -15,7 +15,7 @@ public:
 	WidgetDropDown(ElementFormControl* element);
 	virtual ~WidgetDropDown();
 
-	/// Updates the select value rml if necessary.
+	/// Updates the select value html if necessary.
 	void OnUpdate();
 	/// Updates the selection box layout if necessary.
 	void OnRender();
@@ -36,13 +36,13 @@ public:
 	int GetSelection() const;
 
 	/// Adds a new option to the select control.
-	/// @param[in] rml The RML content used to represent the option.
+	/// @param[in] html The RML content used to represent the option.
 	/// @param[in] value The value of the option.
 	/// @param[in] before The index of the element to insert the new option before.
 	/// @param[in] select True to select the new option.
 	/// @param[in] selectable If true this option can be selected. If false, this option is not selectable.
 	/// @return The index of the new option.
-	int AddOption(const String& rml, const String& value, int before, bool select, bool selectable = true);
+	int AddOption(const String& html, const String& value, int before, bool select, bool selectable = true);
 	/// Moves an option element to the select control.
 	/// @param[in] element Element to move.
 	/// @param[in] before The index of the element to insert the new option before.

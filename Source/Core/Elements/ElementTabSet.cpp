@@ -11,17 +11,17 @@ ElementTabSet::ElementTabSet(const String& tag) : Element(tag)
 
 ElementTabSet::~ElementTabSet() {}
 
-void ElementTabSet::SetTab(int tab_index, const String& rml)
+void ElementTabSet::SetTab(int tab_index, const String& html)
 {
 	ElementPtr element = Factory::InstanceElement(nullptr, "*", "tab", XMLAttributes());
-	Factory::InstanceElementText(element.get(), rml);
+	Factory::InstanceElementText(element.get(), html);
 	SetTab(tab_index, std::move(element));
 }
 
-void ElementTabSet::SetPanel(int tab_index, const String& rml)
+void ElementTabSet::SetPanel(int tab_index, const String& html)
 {
 	ElementPtr element = Factory::InstanceElement(nullptr, "*", "panel", XMLAttributes());
-	Factory::InstanceElementText(element.get(), rml);
+	Factory::InstanceElementText(element.get(), html);
 	SetPanel(tab_index, std::move(element));
 }
 

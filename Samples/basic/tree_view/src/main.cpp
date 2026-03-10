@@ -51,7 +51,7 @@ int main(int /*argc*/, char** /*argv*/)
 	FileBrowser::Initialise(context, root);
 
 	// Load and show the demo document.
-	Rml::ElementDocument* document = context->LoadDocument("basic/tree_view/data/tree_view.rml");
+	Rml::ElementDocument* document = context->LoadDocument("basic/tree_view/data/tree_view.html");
 	if (document)
 	{
 		document->GetElementById("title")->SetInnerRML(document->GetTitle());

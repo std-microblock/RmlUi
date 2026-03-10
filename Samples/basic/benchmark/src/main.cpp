@@ -8,7 +8,7 @@ public:
 	DemoWindow(const Rml::String& title, Rml::Context* context)
 	{
 		using namespace Rml;
-		document = context->LoadDocument("basic/benchmark/data/benchmark.rml");
+		document = context->LoadDocument("basic/benchmark/data/benchmark.html");
 		if (document != nullptr)
 		{
 			{
@@ -26,7 +26,7 @@ public:
 		if (!document)
 			return;
 
-		Rml::String rml;
+		Rml::String html;
 
 		for (int i = 0; i < 50; i++)
 		{
@@ -50,11 +50,11 @@ public:
 				</div>
 			</div>)",
 				index, route, max, value);
-			rml += rml_row;
+			html += rml_row;
 		}
 
 		if (auto el = document->GetElementById("performance"))
-			el->SetInnerRML(rml);
+			el->SetInnerRML(html);
 	}
 
 	class SimpleEventListener : public Rml::EventListener {

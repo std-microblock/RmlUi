@@ -11,10 +11,10 @@
 using namespace Rml;
 
 static const String document_textures_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -54,14 +54,14 @@ static const String document_textures_rml = R"(
 	abc
 </div>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_basic_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -87,7 +87,7 @@ static const String document_basic_rml = R"(
 	<div class="sprite"/>
 	abc
 </body>
-</rml>
+</html>
 )";
 
 static inline StringList GetSortedTextureSourceList()
@@ -233,7 +233,7 @@ TEST_CASE("core.release_resources")
 	Context* context = TestsShell::GetContext();
 	REQUIRE(context);
 
-	ElementDocument* document = context->LoadDocument("assets/demo.rml");
+	ElementDocument* document = context->LoadDocument("assets/demo.html");
 	document->Show();
 	TestsShell::RenderLoop();
 
@@ -367,7 +367,7 @@ TEST_CASE("core.initialize")
 TEST_CASE("core.observer_ptr")
 {
 	Context* context = TestsShell::GetContext();
-	ElementDocument* document = context->LoadDocument("assets/demo.rml");
+	ElementDocument* document = context->LoadDocument("assets/demo.html");
 
 	ObserverPtr<Element> observer_ptr = document->GetObserverPtr();
 	document->Close();

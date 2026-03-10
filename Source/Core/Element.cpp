@@ -1121,7 +1121,7 @@ String Element::GetInnerRML() const
 	return result;
 }
 
-void Element::SetInnerRML(const String& rml)
+void Element::SetInnerRML(const String& html)
 {
 	RMLUI_ZoneScopedC(0x6495ED);
 
@@ -1129,8 +1129,8 @@ void Element::SetInnerRML(const String& rml)
 	while ((int)children.size() > num_non_dom_children)
 		RemoveChild(children.front().get());
 
-	if (!rml.empty())
-		Factory::InstanceElementText(this, rml);
+	if (!html.empty())
+		Factory::InstanceElementText(this, html);
 }
 
 bool Element::Focus(bool focus_visible)

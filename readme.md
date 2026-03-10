@@ -60,19 +60,19 @@ RmlUi supports most of CSS2 with some CSS3 features such as
 and many of the common HTML elements including `<input>`,  `<textarea>`, and `<select>`.
 
 For details, see
-- [RCSS Property index](https://mikke89.github.io/RmlUiDoc/pages/rcss/property_index.html) for all supported properties and differences from CSS.
-- [RML Element index](https://mikke89.github.io/RmlUiDoc/pages/rml/element_index.html) for all supported elements.
+- [RCSS Property index](https://mikke89.github.io/RmlUiDoc/pages/css/property_index.html) for all supported properties and differences from CSS.
+- [RML Element index](https://mikke89.github.io/RmlUiDoc/pages/html/element_index.html) for all supported elements.
 
 ## Enhancements
 
 RmlUi adds features and enhancements over CSS and HTML where it makes sense, most notably the following.
 
 - [Data binding (model-view-controller)](https://mikke89.github.io/RmlUiDoc/pages/data_bindings.html). Synchronization between application data and user interface.
-- [Decorators](https://mikke89.github.io/RmlUiDoc/pages/rcss/decorators.html). Full control over the styling of [all elements](https://mikke89.github.io/RmlUiDoc/pages/style_guide.html).
-- [Sprite sheets](https://mikke89.github.io/RmlUiDoc/pages/rcss/sprite_sheets.html). Define and use sprites with easy high DPI support.
-- [Templates](https://mikke89.github.io/RmlUiDoc/pages/rml/templates.html). Making windows look consistent.
+- [Decorators](https://mikke89.github.io/RmlUiDoc/pages/css/decorators.html). Full control over the styling of [all elements](https://mikke89.github.io/RmlUiDoc/pages/style_guide.html).
+- [Sprite sheets](https://mikke89.github.io/RmlUiDoc/pages/css/sprite_sheets.html). Define and use sprites with easy high DPI support.
+- [Templates](https://mikke89.github.io/RmlUiDoc/pages/html/templates.html). Making windows look consistent.
 - [Localization](https://mikke89.github.io/RmlUiDoc/pages/localisation.html). Translate any text in the document.
-- [Spatial navigation](https://mikke89.github.io/RmlUiDoc/pages/rcss/user_interface.html#nav). Suitable for controllers.
+- [Spatial navigation](https://mikke89.github.io/RmlUiDoc/pages/css/user_interface.html#nav). Suitable for controllers.
 
 ## Dependencies
 
@@ -166,7 +166,7 @@ The provided backends on the other hand are not intended to be used directly by 
 
 **Basic windowing**: Open windows, react to resize events, submit inputs to the RmlUi context.\
 **Clipboard**: Read from and write to the system clipboard.\
-**High DPI**: Scale the [dp-ratio](https://mikke89.github.io/RmlUiDoc/pages/rcss/syntax.html#dp-unit) of RmlUi contexts based on the monitor's DPI settings. React to DPI-changes, either because of changed settings or when moving the window to another monitor. \
+**High DPI**: Scale the [dp-ratio](https://mikke89.github.io/RmlUiDoc/pages/css/syntax.html#dp-unit) of RmlUi contexts based on the monitor's DPI settings. React to DPI-changes, either because of changed settings or when moving the window to another monitor. \
 **Touch**: Process touch events, enable dragging and inertial scrolling with touch movement.
 
 ### Backends
@@ -191,14 +191,14 @@ This example demonstrates a basic document with [data bindings](https://mikke89.
 
 #### Document
 
-`hello_world.rml`
+`hello_world.html`
 
 ```html
-<rml>
+<html>
 <head>
     <title>Hello world</title>
-    <link type="text/rcss" href="rml.rcss"/>
-    <link type="text/rcss" href="window.rcss"/>
+    <link type="text/css" href="html.css"/>
+    <link type="text/css" href="window.css"/>
 </head>
 <body data-model="animals">
     <h1>RmlUi</h1>
@@ -206,13 +206,13 @@ This example demonstrates a basic document with [data bindings](https://mikke89.
     <p data-if="show_text">The quick brown fox jumps over the lazy {{animal}}.</p>
     <input type="text" data-value="animal"/>
 </body>
-</rml>
+</html>
 ```
 The `{{animal}}` text and the `data-if`, `data-value` attributes represent data bindings and will synchronize with the application data.
 
 #### Style sheet
 
-`window.rcss`
+`window.css`
 
 ```css
 body {
@@ -253,7 +253,7 @@ input.text {
 }
 ```
 
-RmlUi defines no styles internally, thus the `input` element is styled here, and [`rml.rcss` is included](Samples/assets/rml.rcss) for proper layout of common tags.
+RmlUi defines no styles internally, thus the `input` element is styled here, and [`html.css` is included](Samples/assets/html.css) for proper layout of common tags.
 
 
 #### C++ Initialization and loop
@@ -306,7 +306,7 @@ int main(int argc, char** argv)
     }
 
     // Now we are ready to load our document.
-    Rml::ElementDocument* document = context->LoadDocument("hello_world.rml");
+    Rml::ElementDocument* document = context->LoadDocument("hello_world.html");
     document->Show();
 
     // Replace and style some text in the loaded document.

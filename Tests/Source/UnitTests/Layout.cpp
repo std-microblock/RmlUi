@@ -8,9 +8,9 @@
 using namespace Rml;
 
 static const String document_layout_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			width: 500px;
@@ -33,13 +33,13 @@ static const String document_layout_rml = R"(
 <body>
 	<div id="relative"/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_layout_rml_nested = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			width: 500px;
@@ -69,7 +69,7 @@ static const String document_layout_rml_nested = R"(
 		<div id="relative"/>
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("Layout.Position.Relative")

@@ -4,7 +4,7 @@
 
 Inventory::Inventory(const Rml::String& title, const Rml::Vector2f& position, Rml::Context* context)
 {
-	document = context->LoadDocument("basic/drag/data/inventory.rml");
+	document = context->LoadDocument("basic/drag/data/inventory.html");
 	if (document != nullptr)
 	{
 		using Rml::PropertyId;

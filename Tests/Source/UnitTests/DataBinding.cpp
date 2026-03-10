@@ -11,10 +11,10 @@ using namespace Rml;
 namespace {
 
 static const String data_binding_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body.window
 		{
@@ -87,14 +87,14 @@ static const String data_binding_rml = R"(
 
 </div>
 </body>
-</rml>
+</html>
 )";
 
 static const String inside_string_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body.window
 		{
@@ -121,16 +121,16 @@ static const String inside_string_rml = R"(
 
 </div>
 </body>
-</rml>
+</html>
 )";
 
 static const String aliasing_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
-	<link type="text/template" href="/../Tests/Data/UnitTests/data-title.rml"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
+	<link type="text/template" href="/../Tests/Data/UnitTests/data-title.html"/>
 	<style>
 		body {
 			width: 600px;
@@ -155,16 +155,16 @@ static const String aliasing_rml = R"(
 	<template src="data-title"/>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 static const String dynamic_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
-	<link type="text/template" href="/../Tests/Data/UnitTests/data-title.rml"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
+	<link type="text/template" href="/../Tests/Data/UnitTests/data-title.html"/>
 </head>
 
 <body data-model="basics">
@@ -174,7 +174,7 @@ static const String dynamic_rml = R"(
 <p>{{ arrays.c[arrays.b[i1] - 19].val }}</p>
 <p>{{ arrays.c[sqrt(arrays.b[i1] - 12) - 1].val }}</p>
 </body>
-</rml>
+</html>
 )";
 
 struct StringWrap {
@@ -636,10 +636,10 @@ TEST_CASE("data_binding.dynamic_variables")
 }
 
 static const String set_enum_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body.window {
 			width: 500px;
@@ -652,7 +652,7 @@ static const String set_enum_rml = R"(
 <p id="simple" data-event-click="simple = 2">{{ simple }}</p>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("data_binding.set_enum")
@@ -684,12 +684,12 @@ TEST_CASE("data_binding.set_enum")
 }
 
 static const String data_model_on_body_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body {
 			width: 500px;
@@ -708,7 +708,7 @@ static const String data_model_on_body_rml = R"(
 		<div data-for="value, i : arrays.a">{{ i }}: {{ value }}</div>
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("data_binding.data_model_on_body")
@@ -770,10 +770,10 @@ TEST_CASE("data_binding.data-value")
 	REQUIRE(context);
 
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 </head>
 <body template="window" data-model="text">
 <div id="div" data-value="parent">
@@ -781,7 +781,7 @@ TEST_CASE("data_binding.data-value")
 	<input id="input" type="text" data-value="name"/>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	Rml::DataModelConstructor constructor = context->CreateDataModel("text");

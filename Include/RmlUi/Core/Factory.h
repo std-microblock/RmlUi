@@ -83,7 +83,7 @@ public:
 	/// Instances a document from a stream.
 	/// @param[in] context The context that is creating the document.
 	/// @param[in] stream The stream to instance from.
-	/// @param[in] document_base_tag The tag used to wrap the document, eg. 'rml'.
+	/// @param[in] document_base_tag The tag used to wrap the document, eg. 'html'.
 	/// @return The instanced document, or nullptr if an error occurred.
 	static ElementPtr InstanceDocumentStream(Context* context, Stream* stream, const String& document_base_tag);
 

@@ -10,11 +10,11 @@ using namespace Rml;
 using namespace ankerl;
 
 static const String document_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body.window
 		{
@@ -57,7 +57,7 @@ static const String document_rml = R"(
 <p><span data-for="arrays.d">{{ 'a: ' + it.a + ', b: ' + it.b + ', c: ' + it.c.val + ' :: ' }}</span></p>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 struct StringWrap {

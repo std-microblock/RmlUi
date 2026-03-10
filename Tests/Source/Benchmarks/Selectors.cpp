@@ -10,11 +10,11 @@ using namespace ankerl;
 using namespace Rml;
 
 static constexpr const char* document_rml_template = R"(
-<rml>
+<html>
 <head>
 
 	<title>Benchmark Sample</title>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body
 		{
@@ -48,7 +48,7 @@ static constexpr const char* document_rml_template = R"(
 <body template="window">
 <div id="performance"/>
 </body>
-</rml>
+</html>
 )";
 
 static int GetNumDescendentElements(Element* element)
@@ -142,8 +142,8 @@ static String GenerateRml(const int num_rows)
 {
 	static nanobench::Rng rng;
 
-	Rml::String rml;
-	rml.reserve(1000 * num_rows);
+	Rml::String html;
+	html.reserve(1000 * num_rows);
 
 	for (int i = 0; i < num_rows; i++)
 	{
@@ -169,10 +169,10 @@ static String GenerateRml(const int num_rows)
 				</div>
 			</div>)",
 			index, route, max, value, class_name_a.c_str(), class_name_b.c_str());
-		rml += rml_row;
+		html += rml_row;
 	}
 
-	return rml;
+	return html;
 }
 
 TEST_CASE("Selectors")
@@ -181,7 +181,7 @@ TEST_CASE("Selectors")
 	REQUIRE(context);
 
 	constexpr int num_rows = 50;
-	const String rml = GenerateRml(num_rows);
+	const String html = GenerateRml(num_rows);
 
 	// Benchmark the lookup of applicable style rules for elements.
 	//
@@ -234,7 +234,7 @@ TEST_CASE("Selectors")
 		document->Show();
 
 		Element* el = document->GetElementById("performance");
-		el->SetInnerRML(rml);
+		el->SetInnerRML(html);
 		context->Update();
 		context->Render();
 

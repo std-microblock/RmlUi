@@ -53,7 +53,7 @@ Element* XMLNodeHandlerLink::ElementStart(XMLParser* parser, const String& name,
 	if (!type.empty() && !href.empty())
 	{
 		// Pass it on to the head handler if it's a type it handles.
-		if (type == "text/rcss" || type == "text/css" || type == "text/template")
+		if (type == "text/css" || type == "text/css" || type == "text/template")
 		{
 			return node_handler_head->ElementStart(parser, name, attributes);
 		}

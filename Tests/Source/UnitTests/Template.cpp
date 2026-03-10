@@ -10,9 +10,9 @@ using namespace Rml;
 TEST_CASE("template.body")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body.window
 		{
@@ -27,7 +27,7 @@ TEST_CASE("template.body")
 <body id="body" class="overridden" template="window">
 	<p id="p">A paragraph</p>
 </body>
-</rml>
+</html>
 )";
 
 	static const String p_address = "p#p < div#content < div#window < body#body.window < #root#main";
@@ -54,10 +54,10 @@ TEST_CASE("template.body")
 TEST_CASE("template.body+inline")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
-	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
+	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.html"/>
 	<style>
 		body.window
 		{
@@ -77,7 +77,7 @@ TEST_CASE("template.body+inline")
 		</template>
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 	static const String p_address = "p#p < div#content < div#window < body#body.window < #root#main";
@@ -104,9 +104,9 @@ TEST_CASE("template.body+inline")
 TEST_CASE("template.inline")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body
 		{
@@ -126,7 +126,7 @@ TEST_CASE("template.inline")
 	</template>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	static const String p_address = "p#p < div#content < div#window < div#template_parent < body#body.inline < #root#main";
@@ -149,10 +149,10 @@ TEST_CASE("template.inline")
 TEST_CASE("template.inline+inline.unique")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
-	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
+	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.html"/>
 	<style>
 		body
 		{
@@ -177,7 +177,7 @@ TEST_CASE("template.inline+inline.unique")
 	</div>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	static const String p_address = "p#p < div#content < div#window < div#template_parent < body#body.inline < #root#main";
@@ -204,10 +204,10 @@ TEST_CASE("template.inline+inline.unique")
 TEST_CASE("template.inline+inline.identical.wrapped")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
-	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
+	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.html"/>
 	<style>
 		body
 		{
@@ -236,7 +236,7 @@ TEST_CASE("template.inline+inline.identical.wrapped")
 	</template>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	static const String s1_address = "span#s1 < p#text < div#wrap_t1 < body#body.inline < #root#main";
@@ -260,10 +260,10 @@ TEST_CASE("template.inline+inline.identical.wrapped")
 TEST_CASE("template.inline+inline.identical.siblings")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
-	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
+	<link type="text/template" href="/../Tests/Data/UnitTests/template_basic.html"/>
 	<style>
 		body
 		{
@@ -288,7 +288,7 @@ TEST_CASE("template.inline+inline.identical.siblings")
 	Disable<span id="s2">Y</span>
 </template>
 </body>
-</rml>
+</html>
 )";
 
 	Context* context = TestsShell::GetContext();

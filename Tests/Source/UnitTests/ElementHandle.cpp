@@ -8,10 +8,10 @@
 using namespace Rml;
 
 static const char* document_handle_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Handle Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 body {
 	left: 0;
@@ -39,7 +39,7 @@ body {
 	<handle id="handle"></handle>
 	<div id="target"></div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("ElementHandle")

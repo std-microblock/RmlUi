@@ -10,10 +10,10 @@ using namespace ankerl;
 using namespace Rml;
 
 static const String rml_font_effect_document = R"(
-<rml>
+<html>
 <head>
     <title>Table</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		body {
 			font-size: 25px;
@@ -24,7 +24,7 @@ static const String rml_font_effect_document = R"(
 <body>
 The quick brown fox jumps over the lazy dog.
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("font_effect")

@@ -21,10 +21,10 @@ static void SimulateClick(Context* context, Vector2i position)
 }
 
 static const String document_focus_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
 	<style>
 		button {
 			display: inline-block;
@@ -74,7 +74,7 @@ static const String document_focus_rml = R"(
 	<input type="checkbox" id="p13"/> P13
 </div>
 </body>
-</rml>
+</html>
 )";
 
 static const String focus_forward = "p1 p2 p3 p5 p7 p9 p10 p11 p12 p13";
@@ -261,7 +261,7 @@ TEST_CASE("Load")
 TEST_CASE("ReloadStyleSheet")
 {
 	Context* context = TestsShell::GetContext();
-	ElementDocument* document = context->LoadDocument("basic/demo/data/demo.rml");
+	ElementDocument* document = context->LoadDocument("basic/demo/data/demo.html");
 
 	// There should be no warnings when reloading style sheets.
 	document->ReloadStyleSheet();
@@ -276,19 +276,19 @@ TEST_CASE("Modal.MultipleDocuments")
 
 	constexpr float halfwidth = 150;
 
-	ElementDocument* document1 = context->LoadDocument("assets/demo.rml");
+	ElementDocument* document1 = context->LoadDocument("assets/demo.html");
 	document1->Show(Rml::ModalFlag::Modal);
 	document1->GetElementById("title")->SetInnerRML("Modal 1");
 	constexpr float margin1 = 50;
 	document1->SetProperty(PropertyId::MarginLeft, Property{margin1, Unit::PX});
 
-	Rml::ElementDocument* document2 = context->LoadDocument("assets/demo.rml");
+	Rml::ElementDocument* document2 = context->LoadDocument("assets/demo.html");
 	document2->Show(Rml::ModalFlag::Modal);
 	document2->GetElementById("title")->SetInnerRML("Modal 2");
 	constexpr float margin2 = 350;
 	document2->SetProperty(PropertyId::MarginLeft, Property{margin2, Unit::PX});
 
-	Rml::ElementDocument* document3 = context->LoadDocument("assets/demo.rml");
+	Rml::ElementDocument* document3 = context->LoadDocument("assets/demo.html");
 	document3->Show(Rml::ModalFlag::None);
 	document3->GetElementById("title")->SetInnerRML("Non-modal");
 	constexpr float margin3 = 650;
@@ -340,7 +340,7 @@ TEST_CASE("Modal.FocusWithin")
 {
 	Context* context = TestsShell::GetContext();
 
-	Rml::ElementDocument* document = context->LoadDocument("assets/demo.rml");
+	Rml::ElementDocument* document = context->LoadDocument("assets/demo.html");
 	document->GetElementById("content")->SetInnerRML("<input type='text' id='input'/>");
 	document->Show(Rml::ModalFlag::Modal);
 
@@ -359,11 +359,11 @@ TEST_CASE("ScrollFlag")
 	REQUIRE(context);
 
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
 <title>Demo</title>
-<link type="text/rcss" href="/assets/rml.rcss" />
-<link type="text/rcss" href="/../Tests/Data/style.rcss" />
+<link type="text/css" href="/assets/html.css" />
+<link type="text/css" href="/../Tests/Data/style.css" />
 <style>
 	body {
 		width: 400px;
@@ -385,7 +385,7 @@ TEST_CASE("ScrollFlag")
 	<div/>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 	ElementDocument* document = context->LoadDocumentFromMemory(document_rml);

@@ -12,13 +12,13 @@ namespace Lua {
 // methods
 int ElementFormControlSelectAdd(lua_State* L, ElementFormControlSelect* obj)
 {
-	const char* rml = luaL_checkstring(L, 1);
+	const char* html = luaL_checkstring(L, 1);
 	const char* value = luaL_checkstring(L, 2);
 	int before = -1; // default
 	if (lua_gettop(L) >= 3)
 		before = GetIndex(L, 3);
 
-	int index = obj->Add(rml, value, before);
+	int index = obj->Add(html, value, before);
 	lua_pushinteger(L, index);
 	return 1;
 }

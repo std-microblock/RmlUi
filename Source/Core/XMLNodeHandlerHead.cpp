@@ -58,9 +58,9 @@ Element* XMLNodeHandlerHead::ElementStart(XMLParser* parser, const String& name,
 		if (!type.empty() && !href.empty())
 		{
 			// If its RCSS (... or CSS!), add to the RCSS fields.
-			if (type == "text/rcss" || type == "text/css")
+			if (type == "text/css" || type == "text/css")
 			{
-				parser->GetDocumentHeader()->rcss.push_back(MakeExternalResource(parser, href));
+				parser->GetDocumentHeader()->css.push_back(MakeExternalResource(parser, href));
 			}
 
 			// If its an template, add to the template fields
@@ -132,7 +132,7 @@ bool XMLNodeHandlerHead::ElementData(XMLParser* parser, const String& data, XMLD
 	// Store an inline style
 	if (tag == "style" && data.size() > 0)
 	{
-		parser->GetDocumentHeader()->rcss.push_back(MakeInlineResource(parser, data));
+		parser->GetDocumentHeader()->css.push_back(MakeInlineResource(parser, data));
 	}
 
 	return true;

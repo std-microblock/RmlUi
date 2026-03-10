@@ -105,7 +105,7 @@ Rml::ElementDocument* EventManager::LoadWindow(const Rml::String& window_name)
 		event_handler = nullptr;
 
 	// Attempt to load the referenced RML document.
-	Rml::String document_path = Rml::String("invaders/data/") + window_name + Rml::String(".rml");
+	Rml::String document_path = Rml::String("invaders/data/") + window_name + Rml::String(".html");
 	Rml::ElementDocument* document = context->LoadDocument(document_path.c_str());
 	if (!document)
 	{

@@ -67,7 +67,7 @@ int main(int /*argc*/, char** /*argv*/)
 	}
 
 	// Load and show the demo document.
-	if (Rml::ElementDocument* document = context->LoadDocument("basic/bitmap_font/data/bitmap_font.rml"))
+	if (Rml::ElementDocument* document = context->LoadDocument("basic/bitmap_font/data/bitmap_font.html"))
 	{
 		if (auto el = document->GetElementById("title"))
 			el->SetInnerRML("Bitmap font");

@@ -10,9 +10,9 @@ using namespace ankerl;
 using namespace Rml;
 
 static const String document_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<title>Benchmark Sample</title>
 	<style>
 		body.window
@@ -35,7 +35,7 @@ static const String document_rml = R"(
 <body template="window">
 <div id="performance"/>
 </body>
-</rml>
+</html>
 )";
 
 static int GetNumDescendentElements(Element* element)
@@ -85,8 +85,8 @@ static String GenerateRml(const int num_rows, const char* row)
 {
 	static nanobench::Rng rng;
 
-	Rml::String rml;
-	rml.reserve(10000 * num_rows);
+	Rml::String html;
+	html.reserve(10000 * num_rows);
 
 	for (int i = 0; i < num_rows; i++)
 	{
@@ -95,10 +95,10 @@ static String GenerateRml(const int num_rows, const char* row)
 		int max = (rng() % 40) + 10;
 		int value = rng() % max;
 		Rml::String rml_row = Rml::CreateString(row, index, route, max, value);
-		rml += rml_row;
+		html += rml_row;
 	}
 
-	return rml;
+	return html;
 }
 
 TEST_CASE("element.creation_and_destruction")
@@ -113,9 +113,9 @@ TEST_CASE("element.creation_and_destruction")
 	Element* el = document->GetElementById("performance");
 	REQUIRE(el);
 	constexpr int num_rows = 50;
-	const String rml = GenerateRml(num_rows, DefaultRow);
+	const String html = GenerateRml(num_rows, DefaultRow);
 
-	el->SetInnerRML(rml);
+	el->SetInnerRML(html);
 	context->Update();
 	context->Render();
 	TestsShell::RenderLoop();
@@ -148,15 +148,15 @@ TEST_CASE("element.creation_and_destruction")
 
 	bench.run("Render", [&] { context->Render(); });
 
-	bench.run("SetInnerRML", [&] { el->SetInnerRML(rml); });
+	bench.run("SetInnerRML", [&] { el->SetInnerRML(html); });
 
 	bench.run("SetInnerRML + Update", [&] {
-		el->SetInnerRML(rml);
+		el->SetInnerRML(html);
 		context->Update();
 	});
 
 	bench.run("SetInnerRML + Update + Render", [&] {
-		el->SetInnerRML(rml);
+		el->SetInnerRML(html);
 		context->Update();
 		context->Render();
 	});
@@ -176,9 +176,9 @@ TEST_CASE("element.long_texts")
 	Element* el = document->GetElementById("performance");
 	REQUIRE(el);
 	constexpr int num_rows = 50;
-	const String rml = GenerateRml(num_rows, LongTextRow);
+	const String html = GenerateRml(num_rows, LongTextRow);
 
-	el->SetInnerRML(rml);
+	el->SetInnerRML(html);
 	context->Update();
 	context->Render();
 	TestsShell::RenderLoop();
@@ -211,15 +211,15 @@ TEST_CASE("element.long_texts")
 
 	bench.run("Render", [&] { context->Render(); });
 
-	bench.run("SetInnerRML", [&] { el->SetInnerRML(rml); });
+	bench.run("SetInnerRML", [&] { el->SetInnerRML(html); });
 
 	bench.run("SetInnerRML + Update", [&] {
-		el->SetInnerRML(rml);
+		el->SetInnerRML(html);
 		context->Update();
 	});
 
 	bench.run("SetInnerRML + Update + Render", [&] {
-		el->SetInnerRML(rml);
+		el->SetInnerRML(html);
 		context->Update();
 		context->Render();
 	});
@@ -232,7 +232,7 @@ TEST_CASE("element.asymptotic_complexity")
 	Context* context = TestsShell::GetContext();
 	REQUIRE(context);
 
-	ElementDocument* document = context->LoadDocument("basic/benchmark/data/benchmark.rml");
+	ElementDocument* document = context->LoadDocument("basic/benchmark/data/benchmark.html");
 	REQUIRE(document);
 	document->Show();
 
@@ -241,21 +241,21 @@ TEST_CASE("element.asymptotic_complexity")
 
 	struct BenchDef {
 		const char* title;
-		Function<void(const String& rml)> run;
+		Function<void(const String& html)> run;
 	};
 
 	Vector<BenchDef> bench_list = {
-		{"SetInnerRML", [&](const String& rml) { el->SetInnerRML(rml); }},
-		{"Update (unmodified)", [&](const String& /*rml*/) { context->Update(); }},
-		{"Render", [&](const String& /*rml*/) { context->Render(); }},
+		{"SetInnerRML", [&](const String& html) { el->SetInnerRML(html); }},
+		{"Update (unmodified)", [&](const String& /*html*/) { context->Update(); }},
+		{"Render", [&](const String& /*html*/) { context->Render(); }},
 		{"SetInnerRML + Update",
-			[&](const String& rml) {
-				el->SetInnerRML(rml);
+			[&](const String& html) {
+				el->SetInnerRML(html);
 				context->Update();
 			}},
 		{"SetInnerRML + Update + Render",
-			[&](const String& rml) {
-				el->SetInnerRML(rml);
+			[&](const String& html) {
+				el->SetInnerRML(html);
 				context->Update();
 				context->Render();
 			}},
@@ -271,13 +271,13 @@ TEST_CASE("element.asymptotic_complexity")
 		// Running the benchmark multiple times, with different number of rows.
 		for (const int num_rows : {1, 2, 5, 10, 20, 50, 100, 200, 500})
 		{
-			const String rml = GenerateRml(num_rows, DefaultRow);
+			const String html = GenerateRml(num_rows, DefaultRow);
 
-			el->SetInnerRML(rml);
+			el->SetInnerRML(html);
 			context->Update();
 			context->Render();
 
-			bench.complexityN(num_rows).run(bench_def.title, [&]() { bench_def.run(rml); });
+			bench.complexityN(num_rows).run(bench_def.title, [&]() { bench_def.run(html); });
 		}
 
 #if defined(RMLUI_BENCHMARKS_SHOW_COMPLEXITY) || 0

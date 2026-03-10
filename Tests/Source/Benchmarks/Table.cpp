@@ -10,10 +10,10 @@ using namespace ankerl;
 using namespace Rml;
 
 static const String rml_table_document = R"(
-<rml>
+<html>
 <head>
     <title>Table</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		table {
 			border-width: 20px 5px 0;
@@ -66,7 +66,7 @@ static const String rml_table_document = R"(
 </head>
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_table_element = R"(
@@ -104,10 +104,10 @@ static const String rml_table_element = R"(
 )";
 
 static const String rml_inlineblock_document = R"(
-<rml>
+<html>
 <head>
     <title>Table inline-block</title>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		table {
 			display: block;
@@ -172,7 +172,7 @@ static const String rml_inlineblock_document = R"(
 
 <body>
 </body>
-</rml>
+</html>
 )";
 
 static const String rml_inline_block_element = R"(

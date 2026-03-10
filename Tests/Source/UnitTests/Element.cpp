@@ -11,11 +11,11 @@
 using namespace Rml;
 
 static const String document_clone_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
 	<style>
 		body
 		{
@@ -41,11 +41,11 @@ static const String document_clone_rml = R"(
 <body>
 <div style="background-color: #f00">This is a <span>sample</span>.</div>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_scroll_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -115,7 +115,7 @@ static const String document_scroll_rml = R"(
 	<span id="cell33"></span>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 void Run(Context* context)

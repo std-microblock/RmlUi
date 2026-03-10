@@ -10,9 +10,9 @@ int ElementTabSetSetPanel(lua_State* L, ElementTabSet* obj)
 {
 	RMLUI_CHECK_OBJ(obj);
 	int index = GetIndex(L, 1);
-	const char* rml = luaL_checkstring(L, 2);
+	const char* html = luaL_checkstring(L, 2);
 
-	obj->SetPanel(index, rml);
+	obj->SetPanel(index, html);
 	return 0;
 }
 
@@ -20,9 +20,9 @@ int ElementTabSetSetTab(lua_State* L, ElementTabSet* obj)
 {
 	RMLUI_CHECK_OBJ(obj);
 	int index = GetIndex(L, 1);
-	const char* rml = luaL_checkstring(L, 2);
+	const char* html = luaL_checkstring(L, 2);
 
-	obj->SetTab(index, rml);
+	obj->SetTab(index, html);
 	return 0;
 }
 

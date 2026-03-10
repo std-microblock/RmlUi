@@ -9,7 +9,7 @@
 using namespace Rml;
 
 static const String doc_begin = R"(
-<rml>
+<html>
 <head>
 	<title>Demo</title>
 	<style>
@@ -41,7 +41,7 @@ static const String doc_end = R"(
 	</div>
 	<input id="I" type="checkbox" checked/>
 </body>
-</rml>
+</html>
 )";
 
 enum class SelectorOp { None, RemoveElementsByIds, InsertElementBefore, RemoveClasses, RemoveId, RemoveChecked, RemoveAttributeUnit, SetHover };
@@ -516,10 +516,10 @@ TEST_CASE("Selectors.placeholder")
 {
 	Context* context = TestsShell::GetContext();
 	const String document_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Demo</title>
-	<link type="text/rcss" href="/../Tests/Data/style.rcss" />
+	<link type="text/css" href="/../Tests/Data/style.css" />
 	<style>
 		body {
 			width: 800px;
@@ -533,7 +533,7 @@ TEST_CASE("Selectors.placeholder")
 	<div id="C"/>
 	<div id="D"/>
 </body>
-</rml>
+</html>
 )";
 
 	ElementDocument* document = context->LoadDocumentFromMemory(document_rml);

@@ -48,7 +48,7 @@ int main(int /*argc*/, char** /*argv*/)
 	Shell::LoadFonts();
 
 	// Load and show the demo document.
-	if (Rml::ElementDocument* document = context->LoadDocument("assets/demo.rml"))
+	if (Rml::ElementDocument* document = context->LoadDocument("assets/demo.html"))
 		document->Show();
 
 	bool running = true;

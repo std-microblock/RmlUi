@@ -25,7 +25,7 @@ parser.add_argument('in_dir',
 parser.add_argument('out_dir',
                     help="Output directory for the converted RML files.")
 parser.add_argument('--clean', action='store_true',
-                    help='Will *delete* all existing *.rml files in the output directory.')
+                    help='Will *delete* all existing *.html files in the output directory.')
 parser.add_argument('--match',
                     help="Only process file names containing the given string.")
 
@@ -57,13 +57,13 @@ if not os.path.isdir(out_dir) or not os.path.isdir(out_ref_dir):
 	exit()
 
 if args.clean:
-	print("Deleting all *.rml files in output directory '{}' and reference directory '{}'".format(out_dir, out_ref_dir))
+	print("Deleting all *.html files in output directory '{}' and reference directory '{}'".format(out_dir, out_ref_dir))
 
 	for del_dir in [out_dir, out_ref_dir]:
 		for file in os.listdir(del_dir):
 			path = os.path.join(del_dir, file)
 			try:
-				if os.path.isfile(path) and file.endswith('.rml'):
+				if os.path.isfile(path) and file.endswith('.html'):
 					os.unlink(path)
 			except Exception as e:
 				print('Failed to delete {}. Reason: {}'.format(path, e))
@@ -174,7 +174,7 @@ reference_links = []
 def process_file(in_file):
 
 	in_path = os.path.join(in_dir, in_file)
-	out_file = os.path.splitext(in_file)[0] + '.rml'
+	out_file = os.path.splitext(in_file)[0] + '.html'
 	out_path = os.path.join(out_dir, out_file)
 
 	f = open(in_path, 'r', encoding="utf8")
@@ -205,13 +205,13 @@ def process_file(in_file):
 			reference_link_match = re.search(reference_link_search, line, flags = re.IGNORECASE)
 			if reference_link_match:
 				reference_link = reference_link_match[2] + '.xht'
-				line = re.sub(reference_link_search, r'\1.rml\3', line, flags = re.IGNORECASE)
+				line = re.sub(reference_link_search, r'\1.html\3', line, flags = re.IGNORECASE)
 				break
 
 		line = re.sub(r'<!DOCTYPE[^>]*>\s*', '', line, flags = re.IGNORECASE)
 		line = re.sub(r' xmlns="[^"]+"', '', line, flags = re.IGNORECASE)
 		line = re.sub(r'<(/?)html[^>]*>', r'<\1rml>', line, flags = re.IGNORECASE)
-		line = re.sub(r'^(\s*)(.*<head[^>]*>)', r'\1\2\n\1\1<link type="text/rcss" href="/../Tests/Data/style.rcss" />', line, flags = re.IGNORECASE)
+		line = re.sub(r'^(\s*)(.*<head[^>]*>)', r'\1\2\n\1\1<link type="text/css" href="/../Tests/Data/style.css" />', line, flags = re.IGNORECASE)
 		line = re.sub(r'<style[^>]*><!\[CDATA\[\s*', '<style>\n', line, flags = re.IGNORECASE)
 		line = re.sub(r'\]\]></style>', '</style>', line, flags = re.IGNORECASE)
 

@@ -54,11 +54,11 @@ int ElementFormControlSelect::GetNumOptions()
 	return widget->GetNumOptions();
 }
 
-int ElementFormControlSelect::Add(const String& rml, const String& value, int before, bool selectable)
+int ElementFormControlSelect::Add(const String& html, const String& value, int before, bool selectable)
 {
 	MoveChildren();
 
-	return widget->AddOption(rml, value, before, false, selectable);
+	return widget->AddOption(html, value, before, false, selectable);
 }
 
 int ElementFormControlSelect::Add(ElementPtr element, int before)

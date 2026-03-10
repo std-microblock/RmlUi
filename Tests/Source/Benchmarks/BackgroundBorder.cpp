@@ -15,9 +15,9 @@ TEST_CASE("background_border")
 	REQUIRE(context);
 
 	static String document_rml = R"(
-<rml>
+<html>
 <head>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		div > div {
 			margin: 50px auto;
@@ -51,7 +51,7 @@ TEST_CASE("background_border")
 	<div/><div/><div/><div/><div/><div/><div/><div/><div/><div/>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	ElementDocument* document = context->LoadDocumentFromMemory(document_rml);
@@ -125,9 +125,9 @@ TEST_CASE("background_border.empty_vs_bordered_divs")
 		divs += "<div/>";
 
 	String document_rml = R"(
-<rml>
+<html>
 <head>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		#container > div {
 			width: 50px;
@@ -145,7 +145,7 @@ TEST_CASE("background_border.empty_vs_bordered_divs")
 		R"(
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	ElementDocument* document = context->LoadDocumentFromMemory(document_rml);
@@ -177,9 +177,9 @@ TEST_CASE("box_shadow")
 	REQUIRE(context);
 
 	static String document_rml = R"(
-<rml>
+<html>
 <head>
-    <link type="text/rcss" href="/../Tests/Data/style.rcss"/>
+    <link type="text/css" href="/../Tests/Data/style.css"/>
 	<style>
 		#boxshadow > div {
 			width: 280dp;
@@ -207,7 +207,7 @@ TEST_CASE("box_shadow")
 	<div/><div/><div/><div/><div/><div/><div/><div/><div/><div/>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 	ElementDocument* document = context->LoadDocumentFromMemory(document_rml);

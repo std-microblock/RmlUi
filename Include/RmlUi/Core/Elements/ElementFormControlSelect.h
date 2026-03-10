@@ -44,13 +44,13 @@ public:
 	int GetNumOptions();
 
 	/// Adds a new option to the select control.
-	/// @param[in] rml The RML content used to represent the option. This is usually a simple string, but can include RML tags.
+	/// @param[in] html The RML content used to represent the option. This is usually a simple string, but can include RML tags.
 	/// @param[in] value The value of the option. This is used to identify the option, but does not necessarily need to be unique.
 	/// @param[in] before The index of the element to insert the new option before. If out of bounds of the control's option list (the default), the
 	/// new option will be added at the end of the list.
 	/// @param[in] selectable If true, this option can be selected. If false, this option is not selectable.
 	/// @return The index of the new option.
-	int Add(const String& rml, const String& value, int before = -1, bool selectable = true);
+	int Add(const String& html, const String& value, int before = -1, bool selectable = true);
 	/// Adds a new option to the select control.
 	/// @param[in] element The element to add, must be an 'option' element.
 	/// @param[in] before The index of the element to insert the new option before.

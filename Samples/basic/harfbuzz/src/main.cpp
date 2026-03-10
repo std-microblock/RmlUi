@@ -119,7 +119,7 @@ int main(int /*argc*/, char** /*argv*/)
 		}
 
 	// Load and show the demo document.
-	if (Rml::ElementDocument* document = context->LoadDocument("basic/harfbuzz/data/harfbuzz.rml"))
+	if (Rml::ElementDocument* document = context->LoadDocument("basic/harfbuzz/data/harfbuzz.html"))
 	{
 		if (auto el = document->GetElementById("title"))
 			el->SetInnerRML("HarfBuzz Text Shaping");

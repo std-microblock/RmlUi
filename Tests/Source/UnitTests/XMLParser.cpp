@@ -10,7 +10,7 @@
 using namespace Rml;
 
 static const String document_xml_tags_in_css = R"(
-<rml>
+<html>
     <head>
         <style>
             body {
@@ -23,11 +23,11 @@ static const String document_xml_tags_in_css = R"(
     </head>
     <body>
     </body>
-</rml>
+</html>
 )";
 
 static const String document_escaping = R"(
-<rml>
+<html>
     <head>
 	<style>
 	p {
@@ -38,11 +38,11 @@ static const String document_escaping = R"(
     <body>
 	<p id="p">&#x20AC;&#8364;</p>
     </body>
-</rml>
+</html>
 )";
 
 static const String document_escaping_tags = R"(
-<rml>
+<html>
     <head>
 	<style>
 	* {
@@ -51,7 +51,7 @@ static const String document_escaping_tags = R"(
 	</style>
     </head>
     <body>&lt;p&gt;&amp;lt;span/&amp;gt;&lt;/p&gt;</body>
-</rml>
+</html>
 )";
 
 TEST_CASE("XMLParser")
@@ -121,7 +121,7 @@ TEST_CASE("XMLParser.escaping_tags")
 TEST_CASE("XMLParser.comments_and_cdata")
 {
 	const String document_source_pre = R"(
-	<rml>
+	<html>
 	    <head>
 		<style>
 		body {
@@ -130,10 +130,10 @@ TEST_CASE("XMLParser.comments_and_cdata")
 		</style>
 	    </head>
 	    <body>)";
-	const String document_source_post = R"(</body></rml>)";
+	const String document_source_post = R"(</body></html>)";
 
 	struct TestCase {
-		String rml;
+		String html;
 		String expected_parsed_rml;
 	};
 
@@ -158,7 +158,7 @@ TEST_CASE("XMLParser.comments_and_cdata")
 
 	for (const TestCase& test : tests)
 	{
-		ElementDocument* document = context->LoadDocumentFromMemory(document_source_pre + test.rml + document_source_post);
+		ElementDocument* document = context->LoadDocumentFromMemory(document_source_pre + test.html + document_source_post);
 		REQUIRE(document);
 
 		CHECK(document->GetInnerRML() == test.expected_parsed_rml);

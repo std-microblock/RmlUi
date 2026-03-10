@@ -88,10 +88,10 @@ int main(int argc, char** argv)
 
 		for (const Rml::String& directory : directories)
 		{
-			const Rml::StringList files = PlatformExtensions::ListFiles(directory, "rml");
+			const Rml::StringList files = PlatformExtensions::ListFiles(directory, "html");
 
 			if (files.empty())
-				Rml::Log::Message(Rml::Log::LT_WARNING, "Could not find any *.rml files in directory '%s'. Ignoring.", directory.c_str());
+				Rml::Log::Message(Rml::Log::LT_WARNING, "Could not find any *.html files in directory '%s'. Ignoring.", directory.c_str());
 			else
 				test_suites.emplace_back(directory, std::move(files));
 		}

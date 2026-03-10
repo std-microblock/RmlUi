@@ -10,10 +10,10 @@
 using namespace Rml;
 
 static const String document_decorator_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -41,7 +41,7 @@ static const String document_decorator_rml = R"(
 <body>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("animation.decorator")
@@ -281,10 +281,10 @@ TEST_CASE("animation.decorator")
 }
 
 static const String document_filter_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -309,7 +309,7 @@ static const String document_filter_rml = R"(
 <body>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("animation.filter")
@@ -406,10 +406,10 @@ TEST_CASE("animation.filter")
 TEST_CASE("animation.case_sensitivity")
 {
 	static const String document_rml_template = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -433,7 +433,7 @@ TEST_CASE("animation.case_sensitivity")
 <body>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 	TestsSystemInterface* system_interface = TestsShell::GetTestsSystemInterface();
@@ -487,10 +487,10 @@ TEST_CASE("animation.case_sensitivity")
 TEST_CASE("animation.case_sensitive_distinct_keyframes")
 {
 	static const String document_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -532,7 +532,7 @@ TEST_CASE("animation.case_sensitive_distinct_keyframes")
 <body>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 	TestsSystemInterface* system_interface = TestsShell::GetTestsSystemInterface();
@@ -579,10 +579,10 @@ TEST_CASE("animation.case_sensitive_distinct_keyframes")
 }
 
 static const String document_multiple_values_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -611,7 +611,7 @@ static const String document_multiple_values_rml = R"(
 <body>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("animation.multiple_values")
@@ -677,10 +677,10 @@ TEST_CASE("animation.multiple_values")
 }
 
 static const String document_animation_multiple_values_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -722,7 +722,7 @@ static const String document_animation_multiple_values_rml = R"(
 <body>
 	<div id="div"/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("animation.multiple_overlapping")
@@ -797,10 +797,10 @@ TEST_CASE("transition.display_and_visibility")
 {
 	// Display and visibility properties have special behavior that make them visible throughout the interpolation duration.
 	const String document_rml_template = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			inset: 0;
@@ -822,7 +822,7 @@ TEST_CASE("transition.display_and_visibility")
 <body>
 	<div class="hide" id="div"/>
 </body>
-</rml>
+</html>
 )";
 
 	TestsSystemInterface* system_interface = TestsShell::GetTestsSystemInterface();
@@ -908,10 +908,10 @@ TEST_CASE("transition.display_and_visibility")
 TEST_CASE("animation.transform_interpolation")
 {
 	static const String document_rml_template = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body { inset: 0; }
 		@keyframes move {
@@ -929,7 +929,7 @@ TEST_CASE("animation.transform_interpolation")
 <body>
 	<div/>
 </body>
-</rml>
+</html>
 )";
 
 	struct Test {

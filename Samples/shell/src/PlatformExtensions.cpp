@@ -48,7 +48,7 @@ Rml::String PlatformExtensions::FindSamplesRoot()
 	executable_directory_path = executable_directory_path.substr(0, executable_directory_path.rfind('\\') + 1);
 
 	// We assume we have found the correct path if we can find the lookup file from it.
-	const char* lookup_file = "assets\\rml.rcss";
+	const char* lookup_file = "assets\\html.css";
 
 	// Test the candidate paths relative to the executable folder, and the current working directory, respectively.
 	for (const Rml::String relative_target_path : candidate_paths)
@@ -128,7 +128,7 @@ Rml::String PlatformExtensions::FindSamplesRoot()
 	executable_directory_path = executable_directory_path.substr(0, executable_directory_path.rfind("/") + 1);
 
 	// We assume we have found the correct path if we can find the lookup file from it.
-	const char* lookup_file = "assets/rml.rcss";
+	const char* lookup_file = "assets/html.css";
 
 	// Test various relative paths to the "Samples" directory, based on common build and install locations.
 	const char* candidate_paths[] = {

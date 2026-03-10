@@ -10,10 +10,10 @@
 using namespace Rml;
 
 static const String document_decorator_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -35,7 +35,7 @@ static const String document_decorator_rml = R"(
 	<button id="exit" onclick="exit" />
 </div>
 </body>
-</rml>
+</html>
 )";
 
 class DemoEventListenerInstancer : public Rml::EventListenerInstancer {

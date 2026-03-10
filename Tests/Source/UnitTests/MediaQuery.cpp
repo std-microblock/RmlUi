@@ -7,10 +7,10 @@
 using namespace Rml;
 
 static const String document_media_query1_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -44,14 +44,14 @@ static const String document_media_query1_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_media_query2_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -91,14 +91,14 @@ static const String document_media_query2_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_media_query3_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -132,14 +132,14 @@ static const String document_media_query3_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_media_query4_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -173,14 +173,14 @@ static const String document_media_query4_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_media_query5_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -214,14 +214,14 @@ static const String document_media_query5_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_media_query6_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -248,14 +248,14 @@ static const String document_media_query6_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 static const String document_media_query7_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -289,7 +289,7 @@ static const String document_media_query7_rml = R"(
 <body>
 <div/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("mediaquery.basic")

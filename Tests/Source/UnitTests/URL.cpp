@@ -116,83 +116,83 @@ TEST_CASE("url.join")
 	SystemInterface* old_system_interface = Rml::GetSystemInterface();
 	Rml::SetSystemInterface(&basic_system_interface);
 
-	CHECK(JoinPath("data/gui/d.rml", "blue.png") == "data/gui/blue.png");
-	CHECK(JoinPath("data/gui/d.rml", "../../data/images/icons/blue.png") == "data/images/icons/blue.png");
-	CHECK(JoinPath("/data/d.rml", "../images/icons/blue.png") == "/images/icons/blue.png");
+	CHECK(JoinPath("data/gui/d.html", "blue.png") == "data/gui/blue.png");
+	CHECK(JoinPath("data/gui/d.html", "../../data/images/icons/blue.png") == "data/images/icons/blue.png");
+	CHECK(JoinPath("/data/d.html", "../images/icons/blue.png") == "/images/icons/blue.png");
 
-	CHECK(JoinPath(R"(C:\data\d.rml)", R"(blue.png)") == R"(C:/data/blue.png)");
-	CHECK(JoinPath(R"(C:\data\d.rml)", R"(../blue.png)") == R"(C:/blue.png)");
-	CHECK(JoinPath(R"(C:\data\d.rml)", R"(..\blue.png)") == R"(C:/blue.png)");
+	CHECK(JoinPath(R"(C:\data\d.html)", R"(blue.png)") == R"(C:/data/blue.png)");
+	CHECK(JoinPath(R"(C:\data\d.html)", R"(../blue.png)") == R"(C:/blue.png)");
+	CHECK(JoinPath(R"(C:\data\d.html)", R"(..\blue.png)") == R"(C:/blue.png)");
 
-	CHECK(JoinPath("file://C:/data/d.rml", "img/blue.png") == "file://C:/data/img/blue.png");
-	CHECK(JoinPath("file://data/d.rml", "img/blue.png") == "file://data/img/blue.png");
-	CHECK(JoinPath("file://C:/data/d.rml", "img/../blue.png") == "file://C:/data/blue.png");
-	CHECK(JoinPath("file://data/d.rml", "img/../../blue.png") == "file://blue.png");
+	CHECK(JoinPath("file://C:/data/d.html", "img/blue.png") == "file://C:/data/img/blue.png");
+	CHECK(JoinPath("file://data/d.html", "img/blue.png") == "file://data/img/blue.png");
+	CHECK(JoinPath("file://C:/data/d.html", "img/../blue.png") == "file://C:/data/blue.png");
+	CHECK(JoinPath("file://data/d.html", "img/../../blue.png") == "file://blue.png");
 
-	CHECK(JoinPath("file://data/d.rml", "file://C:/data/blue.png") == "file://C:/data/blue.png");
-	CHECK(JoinPath("file://data/d.rml", "file://data/blue.png") == "file://data/blue.png");
+	CHECK(JoinPath("file://data/d.html", "file://C:/data/blue.png") == "file://C:/data/blue.png");
+	CHECK(JoinPath("file://data/d.html", "file://data/blue.png") == "file://data/blue.png");
 
-	CHECK(JoinPath("file:///data/d.rml", "../blue.png") == "file:///blue.png");
-	CHECK(JoinPath("file:///data/d.rml", "img/../blue.png") == "file:///data/blue.png");
+	CHECK(JoinPath("file:///data/d.html", "../blue.png") == "file:///blue.png");
+	CHECK(JoinPath("file:///data/d.html", "img/../blue.png") == "file:///data/blue.png");
 
 	/*** These ones are supported now, but we may want to revise them later ***/
 
-	CHECK(JoinPath("/d.rml", "../data/images/icons/blue.png") == "/../data/images/icons/blue.png");
-	CHECK(JoinPath("/data/d.rml", "../../images/icons/blue.png") == "/../images/icons/blue.png");
+	CHECK(JoinPath("/d.html", "../data/images/icons/blue.png") == "/../data/images/icons/blue.png");
+	CHECK(JoinPath("/data/d.html", "../../images/icons/blue.png") == "/../images/icons/blue.png");
 
 	/*** We may want to support these later ***/
 
-	// CHECK(JoinPath("data/gui/d.rml", "/images/icons/blue.png") == "/images/icons/blue.png");
-	// CHECK(JoinPath("/data/gui/d.rml", "/images/icons/blue.png") == "/images/icons/blue.png");
+	// CHECK(JoinPath("data/gui/d.html", "/images/icons/blue.png") == "/images/icons/blue.png");
+	// CHECK(JoinPath("/data/gui/d.html", "/images/icons/blue.png") == "/images/icons/blue.png");
 
-	// CHECK(JoinPath("data/gui/d.rml", "/images/../icons/blue.png") == "/icons/blue.png");
-	// CHECK(JoinPath("data/gui/d.rml", "/images/./icons/../../blue.png") == "/blue.png");
-	// CHECK(JoinPath("/data/gui/d.rml", "/../../images/icons/../blue.png") == "/../../images/blue.png");
-	// CHECK(JoinPath("/data/gui/d.rml", "/images/./icons/blue.png") == "/images/icons/blue.png");
+	// CHECK(JoinPath("data/gui/d.html", "/images/../icons/blue.png") == "/icons/blue.png");
+	// CHECK(JoinPath("data/gui/d.html", "/images/./icons/../../blue.png") == "/blue.png");
+	// CHECK(JoinPath("/data/gui/d.html", "/../../images/icons/../blue.png") == "/../../images/blue.png");
+	// CHECK(JoinPath("/data/gui/d.html", "/images/./icons/blue.png") == "/images/icons/blue.png");
 
-	// CHECK(JoinPath("data/gui/d.rml", "./../images/icons/blue.png") == "data/images/icons/blue.png");
-	// CHECK(JoinPath("/d.rml", "./data/images/icons/blue.png") == "/data/images/icons/blue.png");
-	// CHECK(JoinPath("/data/d.rml", "./images/icons/blue.png") == "/data/images/icons/blue.png");
-	// CHECK(JoinPath("/data/d.rml", "./../images/icons/blue.png") == "/images/icons/blue.png");
-	// CHECK(JoinPath("/data/d.rml", "./../../images/icons/blue.png") == "/../images/icons/blue.png");
+	// CHECK(JoinPath("data/gui/d.html", "./../images/icons/blue.png") == "data/images/icons/blue.png");
+	// CHECK(JoinPath("/d.html", "./data/images/icons/blue.png") == "/data/images/icons/blue.png");
+	// CHECK(JoinPath("/data/d.html", "./images/icons/blue.png") == "/data/images/icons/blue.png");
+	// CHECK(JoinPath("/data/d.html", "./../images/icons/blue.png") == "/images/icons/blue.png");
+	// CHECK(JoinPath("/data/d.html", "./../../images/icons/blue.png") == "/../images/icons/blue.png");
 
-	// CHECK(JoinPath(R"(C:\data\d.rml)", R"(/blue.png)") == R"(/blue.png)");
+	// CHECK(JoinPath(R"(C:\data\d.html)", R"(/blue.png)") == R"(/blue.png)");
 
-	// CHECK(JoinPath("file://C:/data/d.rml", "/img/blue.png") == "file://C:/img/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "/img/blue.png") == "file://data/img/blue.png");
-	// CHECK(JoinPath("file://C:/data/d.rml", "/img/../blue.png") == "file://C:/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "/img/../../blue.png") == "file://data/blue.png");
+	// CHECK(JoinPath("file://C:/data/d.html", "/img/blue.png") == "file://C:/img/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "/img/blue.png") == "file://data/img/blue.png");
+	// CHECK(JoinPath("file://C:/data/d.html", "/img/../blue.png") == "file://C:/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "/img/../../blue.png") == "file://data/blue.png");
 
-	// CHECK(JoinPath("file://data/d.rml", "file://C:/data/../blue.png") == "file://C:/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "file://C:/data/../blue.png") == "file://C:/blue.png");
 
-	// CHECK(JoinPath("file://data/d.rml", "file://data/./blue.png") == "file://data/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "file://data/../blue.png") == "file://data/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "file:///data/../blue.png") == "file:///blue.png");
+	// CHECK(JoinPath("file://data/d.html", "file://data/./blue.png") == "file://data/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "file://data/../blue.png") == "file://data/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "file:///data/../blue.png") == "file:///blue.png");
 
-	// CHECK(JoinPath("file://data/d.rml", "../blue.png") == "file://data/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "img/../blue.png") == "file://data/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "/img/blue.png") == "file://data/img/blue.png");
-	// CHECK(JoinPath("file://data/d.rml", "/img/../blue.png") == "file://data/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "../blue.png") == "file://data/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "img/../blue.png") == "file://data/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "/img/blue.png") == "file://data/img/blue.png");
+	// CHECK(JoinPath("file://data/d.html", "/img/../blue.png") == "file://data/blue.png");
 
-	// CHECK(JoinPath("file:///data/d.rml", "/img/blue.png") == "file:///img/blue.png");
-	// CHECK(JoinPath("file:///data/d.rml", "/img/../blue.png") == "file:///blue.png");
+	// CHECK(JoinPath("file:///data/d.html", "/img/blue.png") == "file:///img/blue.png");
+	// CHECK(JoinPath("file:///data/d.html", "/img/../blue.png") == "file:///blue.png");
 
-	// CHECK(JoinPath("file:data/d.rml", "../blue.png") == "file:blue.png");
-	// CHECK(JoinPath("file:data/d.rml", "img/../blue.png") == "file:data/blue.png");
-	// CHECK(JoinPath("file:data/d.rml", "/img/blue.png") == "file:img/blue.png");
-	// CHECK(JoinPath("file:data/d.rml", "/img/../blue.png") == "file:blue.png");
+	// CHECK(JoinPath("file:data/d.html", "../blue.png") == "file:blue.png");
+	// CHECK(JoinPath("file:data/d.html", "img/../blue.png") == "file:data/blue.png");
+	// CHECK(JoinPath("file:data/d.html", "/img/blue.png") == "file:img/blue.png");
+	// CHECK(JoinPath("file:data/d.html", "/img/../blue.png") == "file:blue.png");
 
-	// CHECK(JoinPath("file:C:/data/d.rml", "../blue.png") == "file:C:/blue.png");
-	// CHECK(JoinPath("file:C:/data/d.rml", "img/../blue.png") == "file:C:/data/blue.png");
-	// CHECK(JoinPath("file:C:/data/d.rml", "/img/blue.png") == "file:img/blue.png");
-	// CHECK(JoinPath("file:C:/data/d.rml", "/img/../blue.png") == "file:blue.png");
+	// CHECK(JoinPath("file:C:/data/d.html", "../blue.png") == "file:C:/blue.png");
+	// CHECK(JoinPath("file:C:/data/d.html", "img/../blue.png") == "file:C:/data/blue.png");
+	// CHECK(JoinPath("file:C:/data/d.html", "/img/blue.png") == "file:img/blue.png");
+	// CHECK(JoinPath("file:C:/data/d.html", "/img/../blue.png") == "file:blue.png");
 
 	/*** Not sure about these, maybe report as invalid? ***/
 
-	// CHECK(JoinPath(R"(C:\data\d.rml)", R"(../../blue.png)") == R"(C:/blue.png)");
-	// CHECK(JoinPath(R"(C:\data\d.rml)", R"(/../blue.png)") == R"(/../blue.png)");
-	// CHECK(JoinPath(R"(C:\data\d.rml)", R"(/..\blue.png)") == R"(/../blue.png)");
-	// CHECK(JoinPath(R"(C:\data\d.rml)", R"(/../../blue.png)") == R"(/../../blue.png)");
+	// CHECK(JoinPath(R"(C:\data\d.html)", R"(../../blue.png)") == R"(C:/blue.png)");
+	// CHECK(JoinPath(R"(C:\data\d.html)", R"(/../blue.png)") == R"(/../blue.png)");
+	// CHECK(JoinPath(R"(C:\data\d.html)", R"(/..\blue.png)") == R"(/../blue.png)");
+	// CHECK(JoinPath(R"(C:\data\d.html)", R"(/../../blue.png)") == R"(/../../blue.png)");
 
 	Rml::SetSystemInterface(old_system_interface);
 }

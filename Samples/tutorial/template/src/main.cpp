@@ -56,7 +56,7 @@ int main(int /*argc*/, char** /*argv*/)
 	Shell::LoadFonts();
 
 	// Load and show the tutorial document.
-	if (Rml::ElementDocument* document = context->LoadDocument("tutorial/template/data/tutorial.rml"))
+	if (Rml::ElementDocument* document = context->LoadDocument("tutorial/template/data/tutorial.html"))
 		document->Show();
 
 	bool running = true;

@@ -10,21 +10,21 @@
 using namespace Rml;
 
 static const String basic_doc_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
 </head>
 <body/>
-</rml>
+</html>
 )";
 
 static const String data_model_doc_rml_pre = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/template" href="/assets/window.rml"/>
+	<link type="text/template" href="/assets/window.html"/>
 	<style>
 		body.window
 		{
@@ -41,7 +41,7 @@ static const String data_model_doc_rml_pre = R"(
 static const String data_model_doc_rml_post = R"(
 </div>
 </body>
-</rml>
+</html>
 )";
 
 static String GetSelectValueRml(ElementFormControlSelect* select_element)
@@ -62,7 +62,7 @@ TEST_CASE("form.select.value")
 	REQUIRE(context);
 
 	struct Test {
-		const String rml;
+		const String html;
 		const String expected_value;
 		const String expected_value_rml;
 	};
@@ -167,7 +167,7 @@ TEST_CASE("form.select.value")
 	int i = 0;
 	for (const Test& test : tests)
 	{
-		document->SetInnerRML(test.rml);
+		document->SetInnerRML(test.html);
 		context->Update();
 
 		REQUIRE(document->GetNumChildren() == 1);
@@ -194,7 +194,7 @@ TEST_CASE("form.select.data_binding")
 	REQUIRE(context);
 
 	struct Test {
-		const String rml;
+		const String html;
 		const String expected_value;
 		const String expected_value_rml;
 	};
@@ -272,10 +272,10 @@ TEST_CASE("form.select.data_binding")
 		{
 			R"(
 			<select data-value="selected_index">
-				 <option data-for="s : subjects" data-attr-value="it_index"><p data-rml="s | to_upper"></p></option>
+				 <option data-for="s : subjects" data-attr-value="it_index"><p data-html="s | to_upper"></p></option>
 			</select>
 			)",
-			"2", "<p data-rml=\"s | to_upper\">C</p>"},
+			"2", "<p data-html=\"s | to_upper\">C</p>"},
 	};
 
 	DataModelConstructor constructor = context->CreateDataModel("select-test");
@@ -288,7 +288,7 @@ TEST_CASE("form.select.data_binding")
 	int i = 0;
 	for (const Test& test : tests)
 	{
-		const String document_rml = data_model_doc_rml_pre + test.rml + data_model_doc_rml_post;
+		const String document_rml = data_model_doc_rml_pre + test.html + data_model_doc_rml_post;
 
 		ElementDocument* document = context->LoadDocumentFromMemory(document_rml);
 		REQUIRE(document);
@@ -323,7 +323,7 @@ TEST_CASE("form.select.data-for")
 	REQUIRE(context);
 
 	struct Test {
-		const String rml;
+		const String html;
 		const String expected_value;
 		const String expected_value_rml;
 	};
@@ -460,10 +460,10 @@ TEST_CASE("form.select.data-for")
 }
 
 static const String event_doc_rml = R"(
-<rml>
+<html>
 <head>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
-	<link type="text/rcss" href="/assets/invader.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
+	<link type="text/css" href="/assets/invader.css"/>
 </head>
 <body>
     <select id="sel">
@@ -473,7 +473,7 @@ static const String event_doc_rml = R"(
         <option value="d">Sphere</option>
     </select>
 </body>
-</rml>
+</html>
 )";
 
 static void ClickAt(Context* context, int x, int y)

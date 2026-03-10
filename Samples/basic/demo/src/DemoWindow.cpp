@@ -27,7 +27,7 @@ bool DemoWindow::Initialize(const Rml::String& title, Rml::Context* context)
 {
 	using namespace Rml;
 
-	document = context->LoadDocument("basic/demo/data/demo.rml");
+	document = context->LoadDocument("basic/demo/data/demo.html");
 	if (!document)
 		return false;
 
@@ -56,7 +56,7 @@ bool DemoWindow::Initialize(const Rml::String& title, Rml::Context* context)
 		{
 			// Load file into string
 			auto file_interface = Rml::GetFileInterface();
-			Rml::FileHandle handle = file_interface->Open("assets/rml.rcss");
+			Rml::FileHandle handle = file_interface->Open("assets/html.css");
 
 			size_t length = file_interface->Length(handle);
 			style_sheet_content.resize(length);
@@ -195,7 +195,7 @@ void DemoWindow::SetSandboxStylesheet(const Rml::String& string)
 	{
 		auto style = Rml::MakeShared<Rml::StyleSheetContainer>();
 		Rml::StreamMemory stream((const Rml::byte*)string.data(), string.size());
-		stream.SetSourceURL("sandbox://rcss");
+		stream.SetSourceURL("sandbox://css");
 
 		style->LoadStyleSheetContainer(&stream);
 		style = rml_basic_style_sheet->CombineStyleSheetContainer(*style);

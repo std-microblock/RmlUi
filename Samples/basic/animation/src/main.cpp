@@ -10,7 +10,7 @@ public:
 	DemoWindow(const Rml::String& title, Rml::Context* context)
 	{
 		using namespace Rml;
-		document = context->LoadDocument("basic/animation/data/animation.rml");
+		document = context->LoadDocument("basic/animation/data/animation.html");
 		if (document != nullptr)
 		{
 			document->GetElementById("title")->SetInnerRML(title);

@@ -45,7 +45,7 @@ int main(int /*argc*/, char** /*argv*/)
 	Shell::LoadFonts();
 
 	// Load and show the demo document.
-	if (Rml::ElementDocument* document = context->LoadDocument("basic/lottie/data/lottie.rml"))
+	if (Rml::ElementDocument* document = context->LoadDocument("basic/lottie/data/lottie.html"))
 	{
 		document->Show();
 		document->GetElementById("title")->SetInnerRML("Lottie");

@@ -50,7 +50,7 @@ int main(int /*argc*/, char** /*argv*/)
 	Shell::LoadFonts();
 
 	// Load a non-existent document to spawn an error message.
-	Rml::ElementDocument* invalid_document = context->LoadDocument("assets/invalid.rml");
+	Rml::ElementDocument* invalid_document = context->LoadDocument("assets/invalid.html");
 	RMLUI_ASSERTMSG(invalid_document, "Testing ASSERT logging.");
 	if (invalid_document)
 	{
@@ -58,7 +58,7 @@ int main(int /*argc*/, char** /*argv*/)
 	}
 
 	// Load and show the demo document.
-	Rml::ElementDocument* document = context->LoadDocument("assets/demo.rml");
+	Rml::ElementDocument* document = context->LoadDocument("assets/demo.html");
 	if (document != nullptr)
 	{
 		document->Show();

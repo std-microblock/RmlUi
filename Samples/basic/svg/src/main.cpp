@@ -14,11 +14,11 @@ struct SVGToogleStruct {
 		toggle_state = !toggle_state;
 
 		// This example uses 3 methods of setting inline SVG data
-		// - Used to set the svg data via data-rml with the main svg data in the data-rml attribute but concatenating colour variables from the model
+		// - Used to set the svg data via data-html with the main svg data in the data-html attribute but concatenating colour variables from the model
 		line_color = toggle_state ? "yellow" : "black";
 		fill_color = toggle_state ? "green" : "red";
 
-		// - Used to set the svg data via data-rml with all the svg data contained within a model property
+		// - Used to set the svg data via data-html with all the svg data contained within a model property
 		svg_data = R"(<circle cx="25" cy="25" r="20" stroke=")" + line_color + R"(" stroke-width="3" fill=")" + fill_color + R"(" />)";
 
 		// - Using SetInnerRML directly on an SVG element to change the SVG data
@@ -87,7 +87,7 @@ int main(int /*argc*/, char** /*argv*/)
 	Shell::LoadFonts();
 
 	// Load and show the documents.
-	std::vector<std::string> rml_docs = {"basic/svg/data/svg_element.rml", "basic/svg/data/svg_decorator.rml", "basic/svg/data/svg_inline.rml"};
+	std::vector<std::string> rml_docs = {"basic/svg/data/svg_element.html", "basic/svg/data/svg_decorator.html", "basic/svg/data/svg_inline.html"};
 	for (const auto& rml_doc : rml_docs)
 	{
 		if (Rml::ElementDocument* document = context->LoadDocument(rml_doc))

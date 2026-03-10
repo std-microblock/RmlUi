@@ -7,10 +7,10 @@
 using namespace Rml;
 
 static const String document_wrapped_image_rml = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
-	<link type="text/rcss" href="/assets/rml.rcss"/>
+	<link type="text/css" href="/assets/html.css"/>
 	<style>
 		body {
 			left: 0;
@@ -26,7 +26,7 @@ static const String document_wrapped_image_rml = R"(
 	<img src="/assets/high_scores_alien_1.tga"/>
 </div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("elementimage.dp_ratio")
@@ -80,7 +80,7 @@ TEST_CASE("elementimage.dp_ratio")
 }
 
 static const String document_wrapped_image_rml_ratio_test = R"(
-<rml>
+<html>
 <head>
 	<title>Test</title>
 	<style>
@@ -98,7 +98,7 @@ static const String document_wrapped_image_rml_ratio_test = R"(
 	<img src="/test_not_loaded/test_512_256.tga" id="test6" width="50" height="100" alt="Set width to 50 and height to 100, attribute set" />
 	<img src="/test_not_loaded/test_512_256.tga" id="test7" class="height-100 width-50" alt="Set width to 50 and height to 100, css set" />
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("elementimage.preserve_ratio")

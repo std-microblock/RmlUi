@@ -101,7 +101,7 @@ bool Shell::ProcessKeyDownShortcuts(Rml::Context* context, Rml::Input::KeyIdenti
 			{
 				Rml::ElementDocument* document = context->GetDocument(i);
 				const Rml::String& src = document->GetSourceURL();
-				if (src.size() > 4 && src.substr(src.size() - 4) == ".rml")
+				if (src.size() > 4 && src.substr(src.size() - 4) == ".html")
 				{
 					document->ReloadStyleSheet();
 				}

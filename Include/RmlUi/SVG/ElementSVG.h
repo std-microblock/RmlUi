@@ -26,8 +26,8 @@ public:
 	void GetInnerRML(String& content) const override;
 
 	/// Gets the SVG XML data (as text) if using inline SVG, if using a file source this will return a blank string
-	/// @param[in] rml The SVG XML data (as text) or blank string
-	void SetInnerRML(const String& rml) override;
+	/// @param[in] html The SVG XML data (as text) or blank string
+	void SetInnerRML(const String& html) override;
 
 protected:
 	/// Renders the image.

@@ -69,7 +69,7 @@ int APIENTRY WinMain(HINSTANCE /*instance_handle*/, HINSTANCE /*previous_instanc
 	LoadFonts();
 
 	// Load and show the demo document.
-	Rml::ElementDocument* document = context->LoadDocument("basic/ime/data/ime.rml");
+	Rml::ElementDocument* document = context->LoadDocument("basic/ime/data/ime.html");
 	if (document)
 		document->Show();
 

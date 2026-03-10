@@ -172,15 +172,15 @@ void ElementDocument::ProcessHeader(const DocumentHeader* document_header)
 	SharedPtr<StyleSheetContainer> new_style_sheet;
 
 	// Combine any inline sheets.
-	for (const DocumentHeader::Resource& rcss : header.rcss)
+	for (const DocumentHeader::Resource& css : header.css)
 	{
-		if (rcss.is_inline)
+		if (css.is_inline)
 		{
 			auto inline_sheet = MakeShared<StyleSheetContainer>();
-			auto stream = MakeUnique<StreamMemory>((const byte*)rcss.content.c_str(), rcss.content.size());
-			stream->SetSourceURL(rcss.path);
+			auto stream = MakeUnique<StreamMemory>((const byte*)css.content.c_str(), css.content.size());
+			stream->SetSourceURL(css.path);
 
-			if (inline_sheet->LoadStyleSheetContainer(stream.get(), rcss.line))
+			if (inline_sheet->LoadStyleSheetContainer(stream.get(), css.line))
 			{
 				if (new_style_sheet)
 					new_style_sheet->MergeStyleSheetContainer(*inline_sheet);
@@ -192,7 +192,7 @@ void ElementDocument::ProcessHeader(const DocumentHeader* document_header)
 		}
 		else
 		{
-			const StyleSheetContainer* sub_sheet = StyleSheetFactory::GetStyleSheetContainer(rcss.path);
+			const StyleSheetContainer* sub_sheet = StyleSheetFactory::GetStyleSheetContainer(css.path);
 			if (sub_sheet)
 			{
 				if (new_style_sheet)
@@ -201,7 +201,7 @@ void ElementDocument::ProcessHeader(const DocumentHeader* document_header)
 					new_style_sheet = sub_sheet->CombineStyleSheetContainer(StyleSheetContainer());
 			}
 			else
-				Log::Message(Log::LT_ERROR, "Failed to load style sheet %s.", rcss.path.c_str());
+				Log::Message(Log::LT_ERROR, "Failed to load style sheet %s.", css.path.c_str());
 		}
 	}
 

@@ -64,7 +64,7 @@ private:
 };
 
 static const String document_filter_rml = R"(
-<rml>
+<html>
 <head>
 	<style>
 		body {
@@ -90,7 +90,7 @@ static const String document_filter_rml = R"(
 	<div id="c"/>
 	<div id="d"/>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("filter")

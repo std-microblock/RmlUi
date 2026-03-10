@@ -538,8 +538,8 @@ int ElementSetAttrinner_rml(lua_State* L)
 {
 	Element* ele = LuaType<Element>::check(L, 1);
 	RMLUI_CHECK_OBJ(ele);
-	const char* rml = luaL_checkstring(L, 2);
-	ele->SetInnerRML(rml);
+	const char* html = luaL_checkstring(L, 2);
+	ele->SetInnerRML(html);
 	return 0;
 }
 

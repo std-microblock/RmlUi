@@ -474,7 +474,7 @@ bool DataViewFor::Initialize(DataModel& model, Element* element, const String& i
 	element->SetProperty(PropertyId::Display, Property(Style::Display::None));
 
 	// Copy over the attributes, but remove the 'data-for' which would otherwise recreate the data-for loop on all
-	// constructed children recursively. There is also no need for the 'rmlui-inner-rml' attribute if that is present.
+	// constructed children recursively. There is also no need for the 'rmlui-inner-html' attribute if that is present.
 	const ElementAttributes& element_attributes = element->GetAttributes();
 	constexpr size_t num_data_for_attributes = 1;
 	if (element_attributes.size() < num_data_for_attributes)
@@ -485,7 +485,7 @@ bool DataViewFor::Initialize(DataModel& model, Element* element, const String& i
 	attributes.reserve(element_attributes.size() - num_data_for_attributes);
 	for (const auto& attribute : element->GetAttributes())
 	{
-		if (attribute.first == "data-for" || attribute.first == "rmlui-inner-rml")
+		if (attribute.first == "data-for" || attribute.first == "rmlui-inner-html")
 			continue;
 		attributes.emplace(attribute.first, attribute.second);
 	}
@@ -557,7 +557,7 @@ const String* DataViewFor::RMLContents() const
 {
 	if (Element* element = GetElement())
 	{
-		if (Variant* attribute = element->GetAttribute("rmlui-inner-rml"))
+		if (Variant* attribute = element->GetAttribute("rmlui-inner-html"))
 		{
 			if (attribute->GetType() == Variant::STRING)
 				return &attribute->GetReference<String>();

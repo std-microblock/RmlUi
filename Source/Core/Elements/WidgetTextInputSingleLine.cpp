@@ -8,7 +8,7 @@ namespace Rml {
 
 WidgetTextInputSingleLine::WidgetTextInputSingleLine(ElementFormControl* parent) : WidgetTextInput(parent)
 {
-	// Single line text controls should clip to the content area, see visual test: text_input_overflow.rml
+	// Single line text controls should clip to the content area, see visual test: text_input_overflow.html
 	parent->SetClipArea(BoxArea::Content);
 }
 

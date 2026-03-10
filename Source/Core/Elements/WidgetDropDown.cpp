@@ -350,10 +350,10 @@ int WidgetDropDown::GetSelection() const
 	return -1;
 }
 
-int WidgetDropDown::AddOption(const String& rml, const String& option_value, int before, bool select, bool selectable)
+int WidgetDropDown::AddOption(const String& html, const String& option_value, int before, bool select, bool selectable)
 {
 	ElementPtr element = Factory::InstanceElement(selection_element, "*", "option", XMLAttributes());
-	element->SetInnerRML(rml);
+	element->SetInnerRML(html);
 
 	element->SetAttribute("value", option_value);
 

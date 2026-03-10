@@ -3,7 +3,7 @@
 
 Inventory::Inventory(const Rml::String& title, const Rml::Vector2f& position, Rml::Context* context)
 {
-	document = context->LoadDocument("tutorial/drag/data/inventory.rml");
+	document = context->LoadDocument("tutorial/drag/data/inventory.html");
 	if (document)
 	{
 		document->GetElementById("title")->SetInnerRML(title);

@@ -11,19 +11,19 @@ using namespace Rml;
 
 static String GenerateRowsRml(int num_rows, String row_rml)
 {
-	String rml;
-	rml.reserve(num_rows * row_rml.size());
+	String html;
+	html.reserve(num_rows * row_rml.size());
 	for (int i = 0; i < num_rows; i++)
-		rml += row_rml;
-	return rml;
+		html += row_rml;
+	return html;
 }
 
 static const String document_basic_rml = R"(
-<rml>
+<html>
 <head>
 <title>Demo</title>
-<link type="text/rcss" href="/assets/rml.rcss" />
-<link type="text/rcss" href="/../Tests/Data/style.rcss" />
+<link type="text/css" href="/assets/html.css" />
+<link type="text/css" href="/../Tests/Data/style.css" />
 <style>
 	body {
 		width: 800px;
@@ -46,7 +46,7 @@ static const String document_basic_rml = R"(
 	<div id="wrapper">
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("ElementBackgroundBorder.render_stats")
@@ -98,11 +98,11 @@ TEST_CASE("ElementBackgroundBorder.render_stats")
 }
 
 static const String document_relative_offset_rml = R"(
-<rml>
+<html>
 <head>
 <title>Demo</title>
-<link type="text/rcss" href="/assets/rml.rcss" />
-<link type="text/rcss" href="/../Tests/Data/style.rcss" />
+<link type="text/css" href="/assets/html.css" />
+<link type="text/css" href="/../Tests/Data/style.css" />
 <style>
 	body {
 		width: 800px;
@@ -123,7 +123,7 @@ static const String document_relative_offset_rml = R"(
 	<div id="wrapper">
 	</div>
 </body>
-</rml>
+</html>
 )";
 
 TEST_CASE("ElementBackgroundBorder.background_edges_line_up_with_relative_offset")

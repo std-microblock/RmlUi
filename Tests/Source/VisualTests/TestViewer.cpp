@@ -69,22 +69,22 @@ TestViewer::TestViewer(Rml::Context* context) : context(context)
 
 	const String local_data_path_prefix = "/../Tests/Data/";
 
-	document_description = context->LoadDocument(local_data_path_prefix + "description.rml");
+	document_description = context->LoadDocument(local_data_path_prefix + "description.html");
 	RMLUI_ASSERT(document_description);
 	event_listener_links.SetHoverTextElement(document_description->GetElementById("hovertext"));
 	document_description->Show();
 
-	document_source = context->LoadDocument(local_data_path_prefix + "view_source.rml");
+	document_source = context->LoadDocument(local_data_path_prefix + "view_source.html");
 	RMLUI_ASSERT(document_source);
-	document_help = context->LoadDocument(local_data_path_prefix + "visual_tests_help.rml");
+	document_help = context->LoadDocument(local_data_path_prefix + "visual_tests_help.html");
 	RMLUI_ASSERT(document_help);
 	if (Element* element = document_help->GetElementById("test_directories"))
 	{
-		String rml;
+		String html;
 		const StringList dirs = GetTestInputDirectories();
 		for (const String& dir : dirs)
-			rml += "<value>" + Rml::StringUtilities::EncodeRml(dir) + "</value>";
-		element->SetInnerRML(rml);
+			html += "<value>" + Rml::StringUtilities::EncodeRml(dir) + "</value>";
+		element->SetInnerRML(html);
 	}
 	if (Element* element = document_help->GetElementById("compare_input"))
 	{
@@ -310,11 +310,11 @@ bool TestViewer::LoadTest(const Rml::String& directory, const Rml::String& filen
 	return true;
 }
 
-void TestViewer::SetGoToText(const Rml::String& rml)
+void TestViewer::SetGoToText(const Rml::String& html)
 {
 	Element* description_goto = document_description->GetElementById("goto");
 	RMLUI_ASSERT(description_goto);
-	description_goto->SetInnerRML(rml);
+	description_goto->SetInnerRML(html);
 }
 
 Rml::Rectanglef TestViewer::GetGoToArea() const
